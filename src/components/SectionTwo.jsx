@@ -24,8 +24,8 @@ function SectionTwo() {
   ];
 
   return (
-<section className="flex justify-center bg-[#FAFAFA] ">
-  <div className="w-[1084px] h-[392px] flex items-center justify-between ">
+<section className="flex justify-center bg-[#FAFAFA] w-[419-px] h-[876px] pt-[120px] pb-10">
+  <div className=" flex flex-col items-center justify-between ">
 
     {cards.map((card, index) => (
       <div
