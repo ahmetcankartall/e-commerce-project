@@ -6,7 +6,7 @@ import HomePage from './pages/HomePage';
 function App() {
   return (
     <>
-      <Header />
+     
 
       {/* Navbar sabit olduğu için padding */}
       <div className="">
