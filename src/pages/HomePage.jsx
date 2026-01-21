@@ -5,7 +5,7 @@ import Footer from '../layout/Footer';
 import Header from '../layout/Header';
 function HomePage() {
   return (
-    <div className="snap-y snap-mandatory h-screen">
+      <div className="snap-y snap-mandatory min-h-screen">
       <Header/>
       <SectionOne />
       <SectionTwo />

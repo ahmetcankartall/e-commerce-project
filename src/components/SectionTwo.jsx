@@ -24,13 +24,13 @@ function SectionTwo() {
   ];
 
   return (
-<section className="flex justify-center bg-[#FAFAFA] w-[419-px] h-[876px] pt-[120px] pb-10">
-  <div className=" flex flex-col items-center justify-between ">
+<section className="flex justify-center bg-[#FAFAFA] min-h-screen">
+  <div className="w-full max-w-7xl flex flex-col md:flex-row items-center justify-between px-4 gap-4">
 
     {cards.map((card, index) => (
       <div
         key={index}
-        className="relative w-[333px] h-[232px] bg-white border border-[#ECECEC] overflow-hidden rounded-xl"
+        className="relative w-full md:w-[333px] h-[232px] bg-white border border-[#ECECEC] overflow-hidden rounded-xl"
       >
         {/* Yazı */}
         <div className="w-1/2 p-6 relative z-10">
