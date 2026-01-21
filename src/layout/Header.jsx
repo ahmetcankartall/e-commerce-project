@@ -27,7 +27,7 @@ function Header() {
           <div className="flex gap-1 lg:gap-2">
             <button className="cursor-pointer text-sm flex items-center gap-2 text-gray-700 hover:text-[#23a6f0] transition-colors px-3 py-2 rounded-lg hover:bg-gray-50">
               <Home size={16} />
-              <span className="hidden lg:inline">Anasayfa</span>
+              <span className="hidden lg:inline">HOME</span>
             </button>
 
             <button className="cursor-pointer text-sm flex items-center gap-2 text-gray-700 hover:text-[#23a6f0] transition-colors px-3 py-2 rounded-lg hover:bg-gray-50">
