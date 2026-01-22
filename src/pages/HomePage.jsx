@@ -1,6 +1,6 @@
+import ProductCard from '../components/ProductCard';
 import SectionOne from '../components/SectionOne';
 import SectionTwo from '../components/SectionTwo';
-import SectionThree from '../components/SectionThree';
 import Footer from '../layout/Footer';
 import Header from '../layout/Header';
 function HomePage() {
@@ -9,9 +9,10 @@ function HomePage() {
       <Header/>
       <SectionOne />
       <SectionTwo />
-      <SectionThree />
-      <Footer />
-    </div>
+     
+      <ProductCard />
+      <Footer/>
+      </div>
   );
 }
 

@@ -8,18 +8,18 @@ function Header() {
   };
 
   return (
-    <nav className="bg-white w-full h-16 md:h-[91px] fixed top-0 left-0 z-50 shadow-sm">
-      <div className="max-w-7xl mx-auto h-full px-4 md:px-8 flex items-center justify-between">
+    <nav className="bg-white w-full h-16 md:h-[91px] fixed top-0 left-0 z-50 shadow-sm overflow-x-hidden">
+      <div className="md:max-w-7xl mx-auto h-full px-4 md:px-8 flex items-center justify-between">
         
         {/* Logo ve Mobile Menu Button */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2">
           {/* Mobile Menu Button */}
           <button className="md:hidden p-2 hover:bg-gray-100 rounded-lg cursor-pointer" onClick={handleMenuOpen}>
-            <Menu size={24} className="text-gray-700" />
+            <Menu size={20} className="text-gray-700" />
           </button>
           
           {/* Logo */}
-          <span className="font-bold text-xl md:text-3xl text-gray-900">STORE</span>
+          <span className="font-bold text-lg md:text-3xl text-gray-900">STORE</span>
         </div>
 
         {/* Desktop Menu - Ortada */}
@@ -53,11 +53,11 @@ function Header() {
         </div>
 
         {/* Right Side Buttons */}
-        <div className="flex items-center gap-3 md:gap-6">
+        <div className="flex items-center gap-2 md:gap-6 flex-wrap">
           
           {/* Search Button - Always Visible */}
-          <button className="text-[#23a6f0] hover:text-blue-700 p-2 hover:bg-gray-100 rounded-lg">
-            <Search size={20} />
+          <button className="text-[#23a6f0] hover:text-blue-700 p-1 md:p-2 hover:bg-gray-100 rounded-lg">
+            <Search size={16} className="md:w-5 md:h-5" />
           </button>
           
           {/* Cart Button - Desktop Only */}
@@ -74,16 +74,16 @@ function Header() {
           </button>
           
           {/* Login Button */}
-          <button className="text-[#23a6f0] hover:text-blue-700 font-medium flex items-center gap-2 px-3 md:px-4 py-2 rounded-lg hover:bg-gray-100">
-            <UserIcon size={18} />
+          <button className="text-[#23a6f0] hover:text-blue-700 font-medium flex items-center gap-1 md:gap-2 px-2 md:px-4 py-1 md:py-2 rounded-lg hover:bg-gray-100">
+            <UserIcon size={14} className="md:w-[18px] md:h-[18px]" />
             <span className="hidden md:inline">Login/Register</span>
-            <span className="md:hidden">Login</span>
+            <span className="md:hidden text-xs">Login</span>
           </button>
           
           {/* Mobile Cart Button */}
-          <button className="md:hidden text-[#23a6f0] hover:text-blue-700 p-2 hover:bg-gray-100 rounded-lg relative">
-            <ShoppingBasket size={20} />
-            <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+          <button className="md:hidden text-[#23a6f0] hover:text-blue-700 p-1 hover:bg-gray-100 rounded-lg relative">
+            <ShoppingBasket size={16} />
+            <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">
               2
             </span>
           </button>
@@ -93,27 +93,17 @@ function Header() {
 
       {/* Mobile Menu Dropdown (Hidden by default) */}
      
-      {isMenuOpen && (
-  <div className="md:hidden bg-white shadow-md w-full absolute top-full left-0 z-50">
-    <div className="flex flex-col px-4 py-2 gap-1">
-      <button className="text-gray-700 hover:text-[#23a6f0] px-3 py-2 rounded-lg text-left flex items-center gap-2">
-        <Home size={16} /> Home
-      </button>
-      <button className="text-gray-700 hover:text-[#23a6f0] px-3 py-2 rounded-lg text-left flex items-center gap-2">
-        <Info size={16} /> About
-      </button>
-      <button className="text-gray-700 hover:text-[#23a6f0] px-3 py-2 rounded-lg text-left flex items-center gap-2">
-        <Mail size={16} /> Contact
-      </button>
-      <button className="text-gray-700 hover:text-[#23a6f0] px-3 py-2 rounded-lg text-left flex items-center gap-2">
-        <ShoppingBasket size={16} /> Products
-      </button>
-      <button className="text-gray-700 hover:text-[#23a6f0] px-3 py-2 rounded-lg text-left flex items-center gap-2">
-        <Info size={16} /> Services
-      </button>
+     {isMenuOpen && (
+  <div className="md:hidden fixed top-16 left-0 w-screen bg-white shadow-md z-40">
+    <div className="flex flex-col items-center py-6 gap-6 text-lg">
+      <button className="text-gray-700 hover:text-[#23a6f0]">Home</button>
+      <button className="text-gray-700 hover:text-[#23a6f0]">Product</button>
+      <button className="text-gray-700 hover:text-[#23a6f0]">Pricing</button>
+      <button className="text-gray-700 hover:text-[#23a6f0]">Contact</button>
     </div>
   </div>
 )}
+
 
     </nav>
   );
