@@ -1,9 +1,10 @@
-import ProductCard from '../components/ProductCard';
+import SectionFour from '../components/SectionFour';
 import SectionOne from '../components/SectionOne';
 import SectionTwo from '../components/SectionTwo';
 import Footer from '../layout/Footer';
 import Header from '../layout/Header';
 import SectionEnd from '../components/sectionEnd';
+import SectionSix from '../components/SectionSix';
 
 
 function HomePage() {
@@ -13,8 +14,9 @@ function HomePage() {
       <SectionOne />
       <SectionTwo />
      
-      <ProductCard />
-      <SectionEnd />
+      <SectionFour />
+      
+      <SectionSix />
       <Footer/>
       </div>
   );
