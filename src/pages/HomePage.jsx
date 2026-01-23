@@ -3,6 +3,9 @@ import SectionOne from '../components/SectionOne';
 import SectionTwo from '../components/SectionTwo';
 import Footer from '../layout/Footer';
 import Header from '../layout/Header';
+import SectionEnd from '../components/sectionEnd';
+
+
 function HomePage() {
   return (
       <div className="snap-y snap-mandatory min-h-screen">
@@ -11,6 +14,7 @@ function HomePage() {
       <SectionTwo />
      
       <ProductCard />
+      <SectionEnd />
       <Footer/>
       </div>
   );

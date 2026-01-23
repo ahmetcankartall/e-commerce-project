@@ -77,7 +77,21 @@ const cards = [
     rating: 4.7,
     date: "2026-02-01",
     link: "/fitness/essentials"
-  }
+  },
+    {
+    id: 6,
+    title: "Your Space",
+    subtitle: "Unique Life",
+    description: "A cozy and personalized living space that adapts to your lifestyle.",
+    buttonText: "Explore Items",
+    image: "https://images.unsplash.com/photo-1484723091739-30a097e8f929?q=80&w=749&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    imageAlt: "Ice cream",
+    tags: ["Interior", "Cozy", "Modern"],
+    price: "$1200",
+    rating: 4.8,
+    date: "2026-02-10",
+    link: "/space/your-space"
+  },
 ];
 
 
