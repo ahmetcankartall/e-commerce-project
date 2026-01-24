@@ -1,10 +1,14 @@
-import SectionFour from '../components/SectionFour';
+
 import SectionOne from '../components/SectionOne';
 import SectionTwo from '../components/SectionTwo';
+import SectionThree from '../components/SectionThree';
+import SectionFour from '../components/SectionFour';
+import SectionSix from '../components/SectionSix';
 import Footer from '../layout/Footer';
 import Header from '../layout/Header';
-import SectionEnd from '../components/sectionEnd';
-import SectionSix from '../components/SectionSix';
+
+
+
 
 
 function HomePage() {
@@ -13,7 +17,7 @@ function HomePage() {
       <Header/>
       <SectionOne />
       <SectionTwo />
-     
+      <SectionThree />
       <SectionFour />
       
       <SectionSix />
