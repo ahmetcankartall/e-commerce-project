@@ -30,7 +30,7 @@ export default function SectionFour() {
 
 
   return (
-    <div className="w-full lg:max-w-[1440px] lg:mx-auto lg:min-h-[886px]  lg:py-12 ">
+    <div className="w-full lg:max-w-[1440px] lg:mx-auto lg:min-h-[886px]  lg:py-12  ">
 
       <div className="w-full lg:max-w-[1069px] lg:mx-auto lg:min-h-[649px] flex ">
 

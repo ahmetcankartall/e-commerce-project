@@ -29,7 +29,7 @@ export default function SectionSix() {
 
 
   return (
-    <div className="w-screen md:h-[895px] h-[760px] bg-[#ffffff] flex justify-center items-center">
+    <div className="w-full md:h-[895px] h-[760px] bg-[#ffffff] flex justify-center items-center">
       <div className="w-[389px] h-[664px] md:h-full md:w-full flex flex-col md:flex-row justify-center md:max-w-7xl gap-6 md:py-16 px-6 md:px-0 ">
 
         <div className="hidden md:flex md:flex-col bg-white md:flex-[2] md:h-[799px] ">

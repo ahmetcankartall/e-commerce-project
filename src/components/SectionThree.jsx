@@ -30,7 +30,7 @@ export default function SectionThree() {
 
 
   return (
-    <div className="w-screen md:h-[895px] h-[760px] bg-[#ffffff] flex justify-center items-center">
+    <div className="w-full md:h-[895px] h-[760px] bg-[#ffffff] flex justify-center items-center">
       <div className="w-[389px] h-[664px] md:h-full md:w-full flex flex-col md:flex-row justify-center md:max-w-7xl gap-6 md:py-16 px-6 md:px-0 ">
 
         <div className=" bg-white md:flex-1 h-[799px] overflow-hidden border-2 border-sky-200 rounded-lg">
@@ -65,9 +65,9 @@ export default function SectionThree() {
 </nav>
 
 
- <div className=" md:p-2 md:h-[746px] md:px-3 
-                flex flex-col flex-wrap justify-start
-                "> {/* 👈 BU ÇOK ÖNEMLİ! */}
+ <div
+  className="md:h-[746px] md:px-3 flex flex-row flex-wrap content-start overflow-x-hidden">
+
   
   {/* KARTLAR */}
   {cards.slice(0, 6).map((card) => (
