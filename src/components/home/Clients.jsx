@@ -8,8 +8,8 @@ import Vector from "../../assets/images/Vector.png";
 function Clients() {
  
   return (
-<section className="w-full  min-h-[952px] border lg:h-[175px] bg-[#FAFAFA] flex lg:flex-row  justify-center ">
- <div className="border py-16 lg:w-[1050px] lg:h-full flex lg:flex-row flex-col justify-between items-center">
+<section className="w-full  h-[952px] border lg:h-[175px] bg-[#FAFAFA] flex lg:flex-row  justify-center ">
+ <div className=" py-16 lg:w-[1050px] h-full flex lg:flex-row flex-col justify-between items-center">
    <div className="lg:max-h-[34px] lg:w-[153px] flex justify-center items-center ">
     <img src={Vector} alt="Logo"  /></div> 
     <div className="lg:min-h-[34px] lg:min-w-[153px]  flex justify-center items-center">
