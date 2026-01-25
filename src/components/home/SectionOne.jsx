@@ -9,7 +9,7 @@ function SectionOne() {
   const currentCard = cards[currentCardIndex];
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/cards')
+    fetch('http://192.168.1.6:5000/api/cards')
       .then(response => response.json())
       .then(data => {
         setCards(data.cards);

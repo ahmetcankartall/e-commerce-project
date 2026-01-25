@@ -8,7 +8,7 @@ import { useQuery } from "@tanstack/react-query";
 
 export default function BestSeller() {
 
-  const URL = "http://localhost:5000/api/cards";
+  const URL = "http://192.168.1.6:5000/api/cards";
   const { data, isLoading, error } = useQuery({
     queryKey: ["cards"], // Query key'i "cards" olarak değiştirdim
     queryFn: () => axios.get(URL).then(res => res.data), // Axios ile API çağrısı
@@ -58,14 +58,14 @@ export default function BestSeller() {
           </div>
 
           {/* CONTENT */}
-          <div className="w-full lg:h-[162px] pt-6 lg:pt-[25px] px-4 lg:px-[25px] pb-8 lg:pb-[35px] flex flex-col gap-2 lg:gap-[10px]">
+          <div className="w-full lg:h-[162px] pt-6 lg:pt-[25px] px-4 lg:px-[25px] pb-8 lg:pb-[35px] flex flex-col gap-2 lg:gap-[10px] items-center justify-center">
             <p className="font-montserrat font-bold text-base lg:text-[16px] text-[#252B42] leading-[24px] tracking-[0.1px]">
               BUY NOW
             </p>
             <p className="font-montserrat font-bold text-sm lg:text-[14px] leading-[24px] tracking-[0.2px] text-[#737373]">
               English Department
             </p>
-            <div className="flex flex-row gap-2 lg:gap-[10px]">
+            <div className="flex flex-row items-center justify-center gap-2 lg:gap-[10px]">
               <p className="font-montserrat font-bold text-base lg:text-[16px] leading-[24px] text-[#BDBDBD] tracking-[0.1px] text-center">
                 3.21$
               </p>

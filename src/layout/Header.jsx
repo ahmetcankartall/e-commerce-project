@@ -8,7 +8,7 @@ function Header() {
   };
 
   return (
-    <nav className="bg-white w-full max-w-full h-16 md:h-[91px] fixed top-0 left-0 z-50 shadow-sm overflow-x-hidden">
+    <nav className="bg-white w-full max-w-[] h-16 md:h-[91px] fixed top-0 left-0 z-50 shadow-sm overflow-x-hidden">
       <div className="md:max-w-7xl  mx-auto h-full px-4 md:px-8 flex items-center justify-between">
         
         {/* Logo ve Mobile Menu Button */}

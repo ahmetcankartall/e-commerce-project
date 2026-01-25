@@ -6,7 +6,7 @@ import { ChevronRight, ChevronLeft } from "lucide-react";
 
 
 export default function SectionFive() {
-  const URL = "http://localhost:5000/api/cards";
+  const URL = "http://192.168.1.6:5000/api/cards";
   const { data, isLoading, error } = useQuery({
     queryKey: ["cards"], // Query key'i "cards" olarak değiştirdim
     queryFn: () => axios.get(URL).then(res => res.data), // Axios ile API çağrısı

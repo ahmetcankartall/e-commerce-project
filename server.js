@@ -103,7 +103,6 @@ app.get("/api/cards", (req, res) => {
 });
 
 // 🔥 KRİTİK SATIR
-app.listen(5000, "0.0.0.0", () => {
-  console.log("Server running on port 5000");
+app.listen(port, "0.0.0.0", () => {
+  console.log(`API running on: http://0.0.0.0:${port}`);
 });
-

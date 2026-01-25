@@ -7,7 +7,7 @@ import { useQuery } from "@tanstack/react-query";
 
 
 export default function SectionFour() {
-  const URL = "http://localhost:5000/api/cards";
+  const URL = "http://192.168.1.6:5000/api/cards";
   const { data, isLoading, error } = useQuery({
     queryKey: ["cards"], // Query key'i "cards" olarak değiştirdim
     queryFn: () => axios.get(URL).then(res => res.data), // Axios ile API çağrısı
@@ -30,7 +30,7 @@ export default function SectionFour() {
 
 
   return (
-    <div className="border w-full lg:max-w-[1440px] lg:mx-auto 
+    <div className="w-full lg:max-w-[1440px] lg:mx-auto 
   min-h-[700px] lg:min-h-[886px] flex flex-col gap-6 lg:gap-0 
   pt-12 lg:pt-0 pb-12 lg:pb-0 px-4 lg:px-0">
 
@@ -47,8 +47,8 @@ export default function SectionFour() {
     </div>
 
     {/* SAĞ KOLON */}
-    <div className="border w-full lg:basis-[401px] lg:grow-0 lg:shrink-0 lg:max-h-[649px] flex lg:flex-col lg:py-[80px] items-center bg-[#fafafa] box-border">
-      <div className="border max-w-[348px] w-full h-[604px] flex flex-col gap-[19px] mx-auto">
+    <div className=" w-full lg:basis-[401px] lg:grow-0 lg:shrink-0 lg:max-h-[649px] flex lg:flex-col lg:py-[80px] items-center bg-[#fafafa] box-border">
+      <div className=" max-w-[348px] w-full h-[604px] flex flex-col gap-[19px] mx-auto">
         <h5 className="font-montserrat font-bold text-[24px] leading-[32px] tracking-[0.1px] text-center text-[#252B42]">
           MOST POPULAR
         </h5>

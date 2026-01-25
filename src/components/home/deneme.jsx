@@ -2,7 +2,7 @@ import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 
 function SectionEnd() {
-  const URL = "http://localhost:5000/api/cards"; // Backend URL'si
+  const URL = "http://192.168.1.6:5000/api/cards"; // Backend URL'si
 
   const { data, isLoading, error } = useQuery({
     queryKey: ["cards"], // Query key'i "cards" olarak değiştirdim
