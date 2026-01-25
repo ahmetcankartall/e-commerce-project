@@ -20,6 +20,12 @@ function HomePage() {
       <Header />
       <SectionOne />
      
+      <SectionTwo />
+      <SectionThree />
+      <SectionFour />
+      <SectionFive />
+      <BestSeller />
+      <SectionSix />
       <Clients />
     </div>
   );
