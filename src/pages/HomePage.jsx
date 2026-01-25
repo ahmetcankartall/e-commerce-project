@@ -3,10 +3,12 @@ import SectionOne from '../components/SectionOne';
 import SectionTwo from '../components/SectionTwo';
 import SectionThree from '../components/SectionThree';
 import SectionFour from '../components/SectionFour';
+import BestSeller from '../components/BestSeller';
 import SectionFive from '../components/SectionFive';
-import SectionSix from '../components/SectionSix';
-import Footer from '../layout/Footer';
+
 import Header from '../layout/Header';
+import SectionSix from '../components/SectionSix';
+import Clients from '../components/Clients';
 
 
 
@@ -14,17 +16,18 @@ import Header from '../layout/Header';
 
 function HomePage() {
   return (
-      <div className="snap-y snap-mandatory min-h-screen">
-      <Header/>
+    <div className="snap-y snap-mandatory min-h-screen">
+      <Header />
       <SectionOne />
       <SectionTwo />
       <SectionThree />
       <SectionFour />
-    <SectionFive />
-     
-     <SectionSix />
-      <Footer/>
-      </div>
+      <SectionFive />
+      
+      <SectionSix />
+      <BestSeller />
+      <Clients />
+    </div>
   );
 }
 
