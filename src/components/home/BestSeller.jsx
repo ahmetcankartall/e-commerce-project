@@ -63,7 +63,7 @@ export default function BestSeller() {
           <div className="lg:w-full lg:h-[162px] lg:pt-[25px] lg:px-[25px] lg:pb-[35px] flex flex-col gap-[10px]">
              <p className="font-montserrat font-bold text-[16px] text-[#252B42] leading-[24px] tracking-[0.1px]">BUY NOW</p>
              <p className="font-montserrat font-bold text-[14px] leading-[24px] tracking-[0.2px] text[#737373]">English Department</p>
-             <div className="flex flex-row">
+             <div className="flex flex-row lg:gap-[10px]">
                 <p className="font-montserrat font-bold text-[16px] leading-[24px] text-[#BDBDBD] tracking-[0.1px] text-center">3.21$</p>
                 <p className="font-montserrat font-bold text-[16px] leading-[24px] tracking-[0.1px] text-[#23856D] text-center">2.80$</p>
              </div>

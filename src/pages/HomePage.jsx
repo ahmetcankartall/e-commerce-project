@@ -1,14 +1,14 @@
 
-import SectionOne from '../components/SectionOne';
-import SectionTwo from '../components/SectionTwo';
-import SectionThree from '../components/SectionThree';
-import SectionFour from '../components/SectionFour';
-import BestSeller from '../components/BestSeller';
-import SectionFive from '../components/SectionFive';
+import SectionOne from '../components/home/SectionOne';
+import SectionTwo from '../components/home/SectionTwo';
+import SectionThree from '../components/home/SectionThree';
+import SectionFour from '../components/home/SectionFour';
+import BestSeller from '../components/home/BestSeller';
+import SectionFive from '../components/home/SectionFive';
 
 import Header from '../layout/Header';
-import SectionSix from '../components/SectionSix';
-import Clients from '../components/Clients';
+import SectionSix from '../components/home/SectionSix';
+import Clients from '../components/home/Clients';
 
 
 

@@ -1,9 +1,9 @@
-import Vector from "../assets/images/Vector.png";
-import Vector1 from "../assets/images/Vector (1).png";
-import Vector2 from "../assets/images/Vector (2).png";
-import Vector3 from "../assets/images/Vector (3).png";
-import Vector4 from "../assets/images/Vector (4).png";
-import Vector5 from "../assets/images/Vector (5).png";
+import Vector1 from "../../assets/images/Vector1.png";
+import Vector2 from "../../assets/images/Vector2.png";
+import Vector3 from "../../assets/images/Vector3.png";
+import Vector4 from "../../assets/images/Vector4.png";
+import Vector5 from "../../assets/images/Vector5.png";
+import Vector from "../../assets/images/Vector.png";
 
 function Clients() {
  
