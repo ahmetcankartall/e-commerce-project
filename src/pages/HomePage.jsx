@@ -19,13 +19,7 @@ function HomePage() {
     <div className="snap-y snap-mandatory min-h-screen">
       <Header />
       <SectionOne />
-      <SectionTwo />
-      <SectionThree />
-      <SectionFour />
-      <SectionFive />
-      
-      <SectionSix />
-      <BestSeller />
+     
       <Clients />
     </div>
   );
