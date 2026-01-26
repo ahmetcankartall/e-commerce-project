@@ -72,34 +72,8 @@ export default function SectionSix() {
     </div>
   </div>
 
-  {/* ALT BAR: Sayılar */}
-   <div className="border w-full h-[444px] lg:max-w-[1069px] lg:h-[111px] max-w-[349px] mx-auto flex flex-col lg:flex-row  gap-4 lg:mt-4">
-    {[1, 2, 3, 4].map((num) => (
-      <div key={num} className=" border lg:my-auto w-full h-[100px] bg-white flex flex-row items-center gap-4 p-4">
-        <div className="border flex-shrink-0 text-[#E74040] font-montserrat font-bold text-[40px] leading-[50px] tracking-[0.2px] w-[60px] h-[60px] flex items-center justify-center rounded">
-          {num}.
-        </div>
-        <div className="flex flex-col justify-center items-start">
-          <p className="font-montserrat font-bold text-[14px] leading-[24px] tracking-[0.2px]">
-            Buraya metni yazabilirsiniz
-          </p>
-          <p className="font-montserrat font-normal text-[12px] leading-[16px] tracking-[0.2px]">
-            Buraya metni yazabilirsiniz
-          </p>
-        </div>
-      </div>
-    ))}
-  </div>
+   
 </div>
-
-
-
-
-
-
-
-
-
 
   );
 }
