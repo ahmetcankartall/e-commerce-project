@@ -9,17 +9,18 @@ import HomePageBlog from '../components/home/HomePageBlog';
 import Header from '../layout/Header';
 import SectionSix from '../components/home/SectionSix';
 import Clients from '../components/home/Clients';
+import PageContent from '../layout/PageContent';
 
 
 
 
 
-function HomePage() {
+
+
+export default function HomePage() {
   return (
-    <div className="snap-y snap-mandatory min-h-screen">
-      <Header />
+    <PageContent header={<Header />}>
       <SectionOne />
-     
       <SectionTwo />
       <SectionThree />
       <SectionFour />
@@ -28,8 +29,6 @@ function HomePage() {
       <SectionSix />
       <HomePageBlog />
       <Clients />
-    </div>
+    </PageContent>
   );
 }
-
-export default HomePage;

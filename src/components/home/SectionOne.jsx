@@ -41,7 +41,7 @@ function SectionOne() {
 
   return (
     <section
-      className="relative w-full h-[638px] mt-16 md:mt-[91px] border border-black/10 overflow-hidden"
+      className="relative w-full h-[638px]  border border-black/10 overflow-hidden"
       style={{
         backgroundImage: `url('${currentCard?.image || "https://images.unsplash.com/photo-1586190848861-99aa4a171e90"}')`,
         backgroundSize: "cover",

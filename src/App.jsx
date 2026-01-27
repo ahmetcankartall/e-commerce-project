@@ -1,7 +1,8 @@
 import { Routes, Route } from 'react-router-dom';
-import Footer from './layout/Footer';
+
 
 import HomePage from './pages/HomePage';
+import ShopPage from './pages/ShopPage';
 
 function App() {
   return (
@@ -13,8 +14,11 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
         </Routes>
+         <Routes>
+          <Route path="/shop" element={<ShopPage />} />
+        </Routes>
       </div>
-      <Footer />
+      
     </>
   );
 }
