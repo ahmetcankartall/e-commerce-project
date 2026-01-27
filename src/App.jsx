@@ -12,11 +12,12 @@ function App() {
       {/* Navbar sabit olduğu için padding */}
       <div className="">
         <Routes>
-          <Route path="/" element={<HomePage />} />
-        </Routes>
-         <Routes>
-          <Route path="/shop" element={<ShopPage />} />
-        </Routes>
+      <Route path="/" element={<HomePage />} />
+
+      {/* Shop routes */}
+      <Route path="/shop" element={<ShopPage />} />
+
+    </Routes>
       </div>
       
     </>
