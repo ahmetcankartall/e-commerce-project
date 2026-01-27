@@ -1,8 +1,7 @@
 @import 'tailwindcss';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 @theme {
-  --color-ahmet-500: #a020f0;
-  --spacing-es-4: 50rem;
-}
-.cubuk {
-  @apply w-3/4 h-1 m-20 bg-zinc-200/40;
+  /* Sadece özel bir class için tanımlayın */
+  --font-montserrat: 'Montserrat', sans-serif;
 }

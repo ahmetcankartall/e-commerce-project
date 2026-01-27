@@ -24,7 +24,7 @@ export default function Header() {
           </button>
 
           {/* Logo */}
-          <span className="font-bold text-2xl md:text-3xl text-gray-900 font-doto">STORE</span>
+          <span className="font-bold text-2xl md:text-3xl text-gray-900 font-montserrat">Bandage</span>
         </div>
 
         {/* Desktop Menu */}
@@ -42,28 +42,28 @@ export default function Header() {
               className="cursor-pointer text-sm flex items-center gap-2 text-gray-700 hover:text-[#23a6f0] transition-colors px-3 py-2 rounded-lg hover:bg-gray-50"
             >
               <Info size={18} />
-              <span className="hidden lg:inline">Shop</span>
+              <span className="hidden lg:inline font-montserrat">Shop</span>
             </Link>
             <Link
               to="/about"
               className="cursor-pointer text-sm flex items-center gap-2 text-gray-700 hover:text-[#23a6f0] transition-colors px-3 py-2 rounded-lg hover:bg-gray-50"
             >
               <Mail size={18} />
-              <span className="hidden lg:inline">About</span>
+              <span className="hidden lg:inline font-montserrat">About</span>
             </Link>
             <Link
               to="/blog"
               className="cursor-pointer text-sm flex items-center gap-2 text-gray-700 hover:text-[#23a6f0] transition-colors px-3 py-2 rounded-lg hover:bg-gray-50"
             >
               <Home size={18} />
-              <span className="hidden lg:inline">Blog</span>
+              <span className="hidden lg:inline font-montserrat">Blog</span>
             </Link>
             <Link
               to="/contact"
               className="cursor-pointer text-sm flex items-center gap-2 text-gray-700 hover:text-[#23a6f0] transition-colors px-3 py-2 rounded-lg hover:bg-gray-50"
             >
               <Info size={18} />
-              <span className="hidden lg:inline">Contact</span>
+              <span className="hidden lg:inline font-montserrat">Contact</span>
             </Link>
           </div>
         </div>
@@ -90,8 +90,8 @@ export default function Header() {
           {/* Login */}
           <button className="text-[#23a6f0] hover:text-blue-700 font-medium flex items-center gap-1 md:gap-2 px-3 py-2 rounded-lg hover:bg-gray-100">
             <UserIcon size={18} />
-            <span className="hidden md:inline">Login/Register</span>
-            <span className="md:hidden text-xs">Login</span>
+            <span className="hidden md:inline font-montserrat hover:cursor-pointer">Login/Register</span>
+            <span className="md:hidden text-xs hover:cursor-pointer">Login</span>
           </button>
 
           {/* Mobile Cart */}
@@ -107,11 +107,11 @@ export default function Header() {
       {isMenuOpen && (
         <div className="md:hidden fixed top-[91px] left-0 w-full bg-white shadow-md z-40">
           <div className="flex flex-col items-center py-6 gap-6 text-lg">
-            <Link to="/" className="text-gray-700 hover:text-[#23a6f0]">Home</Link>
-            <Link to="/shop" className="text-gray-700 hover:text-[#23a6f0]">Shop</Link>
-            <Link to="/about" className="text-gray-700 hover:text-[#23a6f0]">About</Link>
-            <Link to="/blog" className="text-gray-700 hover:text-[#23a6f0]">Blog</Link>
-            <Link to="/contact" className="text-gray-700 hover:text-[#23a6f0]">Contact</Link>
+            <Link to="/" className="text-gray-700 hover:text-[#23a6f0] font-montserrat">Home</Link>
+            <Link to="/shop" className="text-gray-700 hover:text-[#23a6f0] font-montserrat">Shop</Link>
+            <Link to="/about" className="text-gray-700 hover:text-[#23a6f0] font-montserrat">About</Link>
+            <Link to="/blog" className="text-gray-700 hover:text-[#23a6f0] font-montserrat">Blog</Link>
+            <Link to="/contact" className="text-gray-700 hover:text-[#23a6f0] font-montserrat">Contact</Link>
           </div>
         </div>
       )}
