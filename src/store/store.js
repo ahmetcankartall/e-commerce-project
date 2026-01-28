@@ -1,4 +1,11 @@
-import { legacy_createStore as createStore} from "redux";
-import {reducer} from "./reducers";
+import { legacy_createStore as createStore, combineReducers, applyMiddleware } from "redux";
+import { thunk } from 'redux-thunk'
+import logger from "redux-logger";
 
-export const store = createStore(reducer)
+import clientReducer from "./reducers/clientReducer";
+
+const rootReducer = combineReducers({
+  client: clientReducer,
+});
+
+export const store = createStore(rootReducer, applyMiddleware(logger,thunk))
