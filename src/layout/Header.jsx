@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Home, Info, Mail, Search, ShoppingBasket, Heart, UserIcon, Menu, LogOut } from 'lucide-react';
+import { Home, Info, Mail, Search, ShoppingBasket, Heart,  Menu, LogOut } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Gravatar from 'react-gravatar';

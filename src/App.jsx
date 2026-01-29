@@ -1,13 +1,20 @@
 import { Routes, Route } from 'react-router-dom';
 import { ToastContainer} from 'react-toastify';
+import { useEffect } from 'react';
 
 import HomePage from './pages/HomePage';
 import ShopPage from './pages/ShopPage';
 import SignupPage from  './pages/SignupPage';
 import SignInPage from './pages/SignInPage';
+import { useDispatch } from "react-redux";
+import { verifyTokenThunk } from './store/thunks/verifyTokenThunk';
 
 function App() {
- 
+   
+ const dispatch = useDispatch();
+  useEffect(() => {
+   dispatch(verifyTokenThunk());
+  }, []);
   return (
     <>
       <ToastContainer />

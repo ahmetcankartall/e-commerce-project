@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { useNavigate, useLocation } from "react-router-dom";
-import { loginThunk } from "../store/thunks/authThunks";
+import { loginThunk } from "../store/thunks/authThunk";
 import { toast } from "react-toastify";
 
 function SignInPage() {
