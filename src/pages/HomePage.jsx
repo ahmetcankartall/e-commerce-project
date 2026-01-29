@@ -10,6 +10,7 @@ import Header from '../layout/Header';
 import SectionSix from '../components/home/SectionSix';
 import Clients from '../components/home/Clients';
 import PageContent from '../layout/PageContent';
+import Headers from '../layout/Headers';
 
 
 
@@ -19,7 +20,8 @@ import PageContent from '../layout/PageContent';
 
 export default function HomePage() {
   return (
-    <PageContent header={<Header />}>
+    <PageContent header={<Header/>}>
+      
       <SectionOne />
       <SectionTwo />
       <SectionThree />
