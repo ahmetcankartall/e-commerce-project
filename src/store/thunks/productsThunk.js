@@ -5,7 +5,7 @@ export const productsThunk = () => async (dispatch, getState) => {
   const { limit, offset } = getState().product;
 
   try {
-    dispatch(setFetchStateProducts("LOADING"));
+    dispatch(setFetchStateProducts("FETCHING"));
 
     const response = await axios.get(
       "https://workintech-fe-ecommerce.onrender.com/products",

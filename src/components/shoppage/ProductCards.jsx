@@ -9,113 +9,117 @@ function ProductCards() {
   const { productList, total, limit, offset, fetchStateProducts } =
     useSelector((state) => state.product);
 
-  const currentPage = offset / limit + 1;
+  const currentPage = Math.floor(offset / limit) + 1;
   const totalPages = Math.ceil(total / limit);
 
- useEffect(() => {
-  if (fetchStateProducts === 'NOT_FETCHED') {
+  useEffect(() => {
     dispatch(productsThunk());
-  }
-}, [dispatch, offset, fetchStateProducts]);
+  }, [dispatch, offset]);
 
   const handlePageChange = (page) => {
     dispatch(setOffset((page - 1) * limit));
   };
 
-  if (fetchStateProducts === "FETCHING") {
-    return <p className="text-center">Loading...</p>;
+  // 👉 ürünleri 4'lü gruplara böl
+  const chunkedProducts = [];
+  for (let i = 0; i < productList.length; i += 4) {
+    chunkedProducts.push(productList.slice(i, i + 4));
   }
 
   return (
     <div className="w-full flex justify-center px-4">
-      <div className="lg:w-[1124px] w-full py-12 flex flex-col gap-12">
+      <div className="lg:w-[1124px] w-full max-w-[328px] lg:max-w-none py-20 lg:py-12 gap-8 lg:gap-12 flex flex-col items-center">
 
-        {/* PRODUCTS GRID */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {productList.map((product) => (
-            <div
-              key={product.id}
-              className=" lg:h-[488px] flex flex-col"
-            >
-              {/* IMAGE */}
-              <div className="h-[300px]">
-                <img
-                  src={product.images?.[0]?.url}
-                  alt={product.name}
-                  className="w-full h-full object-cover"
-                />
-              </div>
+        {fetchStateProducts === "FETCHING" && (
+          <p className="text-center text-gray-500">Loading...</p>
+        )}
 
-              {/* INFO */}
-              <div className="flex-1 flex flex-col items-center justify-center gap-2 p-4">
-                <h5 className="font-bold text-center">{product.name}</h5>
+        {/* 4'LÜ SATIRLAR */}
+        {chunkedProducts.map((row, rowIndex) => (
+          <div
+            key={rowIndex}
+            className="lg:w-[1048px] w-full flex flex-col lg:flex-row justify-between items-center lg:items-stretch gap-8 lg:gap-0"
+          >
+            {row.map((product) => (
+              <div
+                key={product.id}
+                className="lg:w-[239px] w-full max-w-[348px] lg:h-[488px] h-[615px] flex flex-col"
+              >
+                {/* IMAGE */}
+                <div className="w-full lg:h-[300px] h-[427px]">
+                  <img
+                    src={product.images?.[0]?.url}
+                    alt={product.name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
 
-                <p className="text-sm text-gray-500 text-center">
-                  {product.description}
-                </p>
+                {/* INFO */}
+                <div className="w-full lg:h-[188px] h-[188px] pt-[25px] pb-9 gap-2.5 flex flex-col justify-center items-center">
+                  <h5 className="font-montserrat font-bold text-base leading-6 tracking-[0.1px] text-center">
+                    {product.name}
+                  </h5>
 
-                <div className="flex gap-2">
-                  <span className="line-through text-gray-400">
-                    ${product.price + 20}
-                  </span>
-                  <span className="text-green-600 font-bold">
-                    ${product.price}
-                  </span>
+                  <p
+                    className="w-[146px] h-[24px] overflow-hidden whitespace-nowrap text-ellipsis font-montserrat font-bold text-[14px] leading-[24px] tracking-[0.2px] text-center text-[#737373]"
+                  >
+                    {product.description}
+                  </p>
+
+
+                  <div className="w-[108px] h-[34px] flex justify-between items-center">
+                    <span className="line-through text-[#BDBDBD] font-bold">
+                      ${product.price + 20}
+                    </span>
+                    <span className="text-[#23856D] font-bold">
+                      ${product.price}
+                    </span>
+                  </div>
+
+                  {/* renk noktaları (dummy) */}
+                  <div className="w-[82px] h-[16px] flex justify-between">
+                    <div className="w-3 h-3 rounded-full bg-[#23A6F0]" />
+                    <div className="w-3 h-3 rounded-full bg-[#23856D]" />
+                    <div className="w-3 h-3 rounded-full bg-[#E77C40]" />
+                    <div className="w-3 h-3 rounded-full bg-[#23856D]" />
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        ))}
 
-        
         {/* PAGINATION */}
-        <div className="flex justify-center">
-          <div className="flex w-[313px] h-[74px] rounded-lg overflow-hidden border border-gray-200">
-            {/* PREV Button */}
+        <div className="lg:w-[1048px] w-full flex justify-center items-center">
+          <div className="w-full max-w-[313px] h-[74px] flex rounded-[6.73px] border border-gray-300 overflow-hidden">
+
             <button
               disabled={currentPage === 1}
               onClick={() => handlePageChange(currentPage - 1)}
-              className="w-[84px] h-full px-6 flex items-center justify-center border-r border-gray-200 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-gray-100 transition-colors bg-white text-sm font-medium text-gray-700"
+              className="flex-1 flex items-center justify-center text-gray-600 font-semibold disabled:opacity-40"
             >
-              First
+              Prev
             </button>
 
-            {/* Page Numbers - 3 buttons */}
-            {(() => {
-              let pages = [];
-
-              if (currentPage === 1) {
-                pages = [1, 2, 3];
-              } else if (currentPage === totalPages) {
-                pages = [totalPages - 2, totalPages - 1, totalPages];
-              } else {
-                pages = [currentPage - 1, currentPage, currentPage + 1];
-              }
-
-              pages = pages.filter(p => p > 0 && p <= totalPages);
-
-              return pages.map((page, index) => (
+            {[currentPage - 1, currentPage, currentPage + 1]
+              .filter((p) => p > 0 && p <= totalPages)
+              .map((page) => (
                 <button
                   key={page}
                   onClick={() => handlePageChange(page)}
-                  className={`flex-1 h-full flex items-center justify-center transition-colors text-sm font-medium ${
-                    index < pages.length - 1 ? 'border-r border-gray-200' : ''
-                  } ${
-                    currentPage === page
-                      ? "bg-[#23a6f0] text-white"
-                      : "bg-white text-gray-700 hover:bg-gray-50"
-                  }`}
+                  className={`flex-1 flex items-center justify-center font-bold ${page === currentPage
+                      ? "bg-[#23A6F0] text-white"
+                      : "bg-white text-gray-600"
+                    }`}
                 >
                   {page}
                 </button>
-              ));
-            })()}
+              ))}
 
-            {/* NEXT Button */}
             <button
               disabled={currentPage === totalPages}
               onClick={() => handlePageChange(currentPage + 1)}
-              className="w-[84px] h-full px-6 flex items-center justify-center border-l border-gray-200 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-gray-100 transition-colors bg-white text-sm font-medium text-[#23a6f0]"
+              className="flex-1 flex items-center justify-center text-gray-600 font-semibold disabled:opacity-40"
             >
               Next
             </button>
