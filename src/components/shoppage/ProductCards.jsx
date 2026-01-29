@@ -1,91 +1,126 @@
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { productsThunk } from "../../store/thunks/productsThunk";
+import { setOffset } from "../../store/actions/productActions";
+
 function ProductCards() {
+  const dispatch = useDispatch();
+
+  const { productList, total, limit, offset, fetchStateProducts } =
+    useSelector((state) => state.product);
+
+  const currentPage = offset / limit + 1;
+  const totalPages = Math.ceil(total / limit);
+
+ useEffect(() => {
+  if (fetchStateProducts === 'NOT_FETCHED') {
+    dispatch(productsThunk());
+  }
+}, [dispatch, offset, fetchStateProducts]);
+
+  const handlePageChange = (page) => {
+    dispatch(setOffset((page - 1) * limit));
+  };
+
+  if (fetchStateProducts === "FETCHING") {
+    return <p className="text-center">Loading...</p>;
+  }
+
   return (
-    <div className="w-full flex justify-center px-4 "> {/* px-4 ekle */}
-      <div className="lg:w-[1124px] w-full max-w-[328px] lg:max-w-none py-20 lg:py-12 gap-8 lg:gap-12 flex flex-col justify-center items-center">
-        
-        {/* 1. Satır - DÜZELTİLMİŞ */}
-        <div className="lg:w-[1048px] w-full flex flex-col lg:flex-row justify-between items-center lg:items-stretch gap-8 lg:gap-0">
-          
-          {/* Card 1 - DÜZELTİLMİŞ */}
-          <div className="border lg:w-[239px] w-full max-w-[348px] lg:h-[488px] h-[615px]">
-            <div className="border w-full lg:h-[300px] h-[427px] flex">
-                <div className="border w-full lg:h-[300px] h-[427px] flex items-center justify-center">
-  <img
-          src='https://images.unsplash.com/photo-1768881140772-f49f7555d9f6?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxOXx8fGVufDB8fHx8fA%3D%3D'
-          alt="Blog"
-          className="w-full h-full object-cover"
-        />
-</div>
+    <div className="w-full flex justify-center px-4">
+      <div className="lg:w-[1124px] w-full py-12 flex flex-col gap-12">
 
-
-            </div>
-            <div className="border w-full lg:h-[188px] h-[188px] pt-[25px] pb-9 py-6 gap-2.5 flex flex-col justify-center items-center">
-              <h5 className="font-montserrat font-bold text-base leading-6 tracking-[0.1px] text-center border">
-                Graphic Design
-              </h5>
-              <a href="/shop" className="font-montserrat font-bold text-sm leading-6 tracking-[0.2px] text-center text-[#737373]">
-                Ürün Departmanı
-              </a>
-              <div className="w-[108px] h-[34px] flex flex-row justify-between items-center">
-                <h5 className="font-montserrat font-bold text-base leading-6 tracking-[0.1px] text-center text-[#BDBDBD]">
-                  $16.48
-                </h5>
-                <h5 className="font-montserrat font-bold text-base leading-6 tracking-[0.1px] text-center text-[#23856D]">
-                  $6.48
-                </h5>
+        {/* PRODUCTS GRID */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {productList.map((product) => (
+            <div
+              key={product.id}
+              className=" lg:h-[488px] flex flex-col"
+            >
+              {/* IMAGE */}
+              <div className="h-[300px]">
+                <img
+                  src={product.images?.[0]?.url}
+                  alt={product.name}
+                  className="w-full h-full object-cover"
+                />
               </div>
-              <div className="lg:w-[82px] h-[16px] w-[83px] flex items-center justify-between">
-                <div className="w-3 h-3 rounded-full bg-[#23A6F0]"></div>
-                <div className="w-3 h-3 rounded-full bg-[#23856D]"></div>
-                <div className="w-3 h-3 rounded-full bg-[#E77C40]"></div>
-                <div className="w-3 h-3 rounded-full bg-[#23856D]"></div>
+
+              {/* INFO */}
+              <div className="flex-1 flex flex-col items-center justify-center gap-2 p-4">
+                <h5 className="font-bold text-center">{product.name}</h5>
+
+                <p className="text-sm text-gray-500 text-center">
+                  {product.description}
+                </p>
+
+                <div className="flex gap-2">
+                  <span className="line-through text-gray-400">
+                    ${product.price + 20}
+                  </span>
+                  <span className="text-green-600 font-bold">
+                    ${product.price}
+                  </span>
+                </div>
               </div>
             </div>
-          </div>
-          
-          {/* Diğer Card'lar - AYNI YAPI */}
-          <div className="border lg:w-[239px] w-full max-w-[348px] lg:h-[488px] h-[615px]"></div>
-          <div className="border lg:w-[239px] w-full max-w-[348px] lg:h-[488px] h-[615px]"></div>
-          <div className="border lg:w-[239px] w-full max-w-[348px] lg:h-[488px] h-[615px]"></div>
-          
+          ))}
         </div>
+
         
-        {/* 2. ve 3. Satırlar - AYNISI */}
-        <div className="hidden lg:flex border lg:w-[1048px] lg:h-[488px] lg:justify-between">
-          <div className="border lg:w-[239px] lg:h-[488px]"></div>
-          <div className="border lg:w-[239px] lg:h-[488px]"></div>
-          <div className="border lg:w-[239px] lg:h-[488px]"></div>
-          <div className="border lg:w-[239px] lg:h-[488px]"></div>
-        </div>
-        
-        <div className="hidden lg:flex border lg:w-[1048px] lg:h-[488px] lg:justify-between">
-          <div className="border lg:w-[239px] lg:h-[488px]"></div>
-          <div className="border lg:w-[239px] lg:h-[488px]"></div>
-          <div className="border lg:w-[239px] lg:h-[488px]"></div>
-          <div className="border lg:w-[239px] lg:h-[488px]"></div>
-        </div>
-        
-        {/* Pagination - DÜZELTİLMİŞ */}
-        <div className="border lg:w-[1048px] w-full max-w-[328px] lg:h-[100px] h-auto flex justify-center items-center">
-          <div className="w-full max-w-[313px] h-[74px] flex rounded-[6.73px] border-[1.35px] border-gray-300 overflow-hidden">
-            <button className="flex-1 h-full flex items-center justify-center bg-white text-gray-600 font-semibold font-montserrat text-[14px] hover:bg-gray-50 transition-all border-r border-gray-300">
+        {/* PAGINATION */}
+        <div className="flex justify-center">
+          <div className="flex w-[313px] h-[74px] rounded-lg overflow-hidden border border-gray-200">
+            {/* PREV Button */}
+            <button
+              disabled={currentPage === 1}
+              onClick={() => handlePageChange(currentPage - 1)}
+              className="w-[84px] h-full px-6 flex items-center justify-center border-r border-gray-200 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-gray-100 transition-colors bg-white text-sm font-medium text-gray-700"
+            >
               First
             </button>
-            <button className="flex-1 h-full flex items-center justify-center bg-blue-50 text-blue-700 font-bold font-montserrat text-[16px] hover:bg-blue-100 transition-all border-r border-blue-200">
-              1
-            </button>
-            <button className="flex-1 h-full flex items-center justify-center bg-white text-gray-600 font-medium font-montserrat text-[16px] hover:bg-gray-50 transition-all border-r border-gray-300">
-              2
-            </button>
-            <button className="flex-1 h-full flex items-center justify-center bg-white text-gray-600 font-medium font-montserrat text-[16px] hover:bg-gray-50 transition-all border-r border-gray-300">
-              3
-            </button>
-            <button className="flex-1 h-full flex items-center justify-center bg-white text-gray-600 font-semibold font-montserrat text-[14px] hover:bg-gray-50 transition-all">
+
+            {/* Page Numbers - 3 buttons */}
+            {(() => {
+              let pages = [];
+
+              if (currentPage === 1) {
+                pages = [1, 2, 3];
+              } else if (currentPage === totalPages) {
+                pages = [totalPages - 2, totalPages - 1, totalPages];
+              } else {
+                pages = [currentPage - 1, currentPage, currentPage + 1];
+              }
+
+              pages = pages.filter(p => p > 0 && p <= totalPages);
+
+              return pages.map((page, index) => (
+                <button
+                  key={page}
+                  onClick={() => handlePageChange(page)}
+                  className={`flex-1 h-full flex items-center justify-center transition-colors text-sm font-medium ${
+                    index < pages.length - 1 ? 'border-r border-gray-200' : ''
+                  } ${
+                    currentPage === page
+                      ? "bg-[#23a6f0] text-white"
+                      : "bg-white text-gray-700 hover:bg-gray-50"
+                  }`}
+                >
+                  {page}
+                </button>
+              ));
+            })()}
+
+            {/* NEXT Button */}
+            <button
+              disabled={currentPage === totalPages}
+              onClick={() => handlePageChange(currentPage + 1)}
+              className="w-[84px] h-full px-6 flex items-center justify-center border-l border-gray-200 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-gray-100 transition-colors bg-white text-sm font-medium text-[#23a6f0]"
+            >
               Next
             </button>
           </div>
         </div>
-        
       </div>
     </div>
   );
