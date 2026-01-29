@@ -20,7 +20,7 @@ function ProductCards() {
     dispatch(setOffset((page - 1) * limit));
   };
 
-  // 👉 ürünleri 4'lü gruplara böl
+  //  ürünleri 4'lü gruplara böl
   const chunkedProducts = [];
   for (let i = 0; i < productList.length; i += 4) {
     chunkedProducts.push(productList.slice(i, i + 4));
