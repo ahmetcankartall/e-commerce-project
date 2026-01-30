@@ -10,7 +10,7 @@ import Header from '../layout/Header';
 import SectionSix from '../components/home/SectionSix';
 import Clients from '../components/home/Clients';
 import PageContent from '../layout/PageContent';
-import Headers from '../layout/Headers';
+
 
 
 

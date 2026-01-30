@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 import Gravatar from 'react-gravatar';
 import { setUser } from '../store/actions/clientActions';
 
-export default function Headers() {
+export default function Header() {
   const dispatch = useDispatch();
 
   // Redux store'dan kategoriler ve fetch state
@@ -54,12 +54,12 @@ export default function Headers() {
             </div>
         <div className="border lg:w-[815px] h-[58px] w-[187px] flex items-center lg:justify-between justify-center">
             <div className="hidden border w-[361px] lg:flex items-center justify-between">
-                <a className='text-[#737373] font-montserrat font-bold text-sm leading-6 tracking-[0.2px] text-center' href="#home">Home</a>
-                <a className='text-[#737373] font-montserrat font-bold text-sm leading-6 tracking-[0.2px] text-center' href="#news">Shop</a>
-                <a className='text-[#737373] font-montserrat font-bold text-sm leading-6 tracking-[0.2px] text-center' href="#contact">About</a>
-                <a className='text-[#737373] font-montserrat font-bold text-sm leading-6 tracking-[0.2px] text-center' href="#about">Blog</a>
-                 <a className='text-[#737373] font-montserrat font-bold text-sm leading-6 tracking-[0.2px] text-center' href="#about">Contact</a>
-                  <a className='text-[#737373] font-montserrat font-bold text-sm leading-6 tracking-[0.2px] text-center' href="#about">Pages</a>
+                <Link to="/" className='text-[#737373] font-montserrat font-bold text-sm leading-6 tracking-[0.2px] text-center'>Home</Link>
+                <Link to="/shop" className='text-[#737373] font-montserrat font-bold text-sm leading-6 tracking-[0.2px] text-center' >Shop</Link>
+                <Link to="/" className='text-[#737373] font-montserrat font-bold text-sm leading-6 tracking-[0.2px] text-center' >About</Link>
+                <Link to="/" className='text-[#737373] font-montserrat font-bold text-sm leading-6 tracking-[0.2px] text-center' >Blog</Link>
+                 <Link to="/" className='text-[#737373] font-montserrat font-bold text-sm leading-6 tracking-[0.2px] text-center' >Contact</Link>
+                  <Link to="/" className='text-[#737373] font-montserrat font-bold text-sm leading-6 tracking-[0.2px] text-center' >Pages</Link>
                 </div>
                 <div className="border flex flex-row  justify-center ">
                       {!user.email && (
