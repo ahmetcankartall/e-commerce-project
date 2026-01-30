@@ -26,6 +26,8 @@ function App() {
 
       {/* Shop routes */}
       <Route path="/shop" element={<ShopPage />} />
+<Route path="/shop/:gender/:categoryName/:categoryId" element={<ShopPage />} />
+
     <Route path="/signup" element={<SignupPage />} />
     <Route path="/signin" element={<SignInPage />} />
     </Routes>

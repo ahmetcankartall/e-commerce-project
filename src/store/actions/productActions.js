@@ -8,6 +8,9 @@ export const SET_FETCH_STATE_PRODUCTS = 'SET_FETCH_STATE_PRODUCTS'
 export const SET_LIMIT = 'SET_LIMIT'
 export const SET_OFFSET = 'SET_OFFSET'
 export const SET_FILTER= 'SET_FILTER'
+export const SET_CATEGORY = "SET_CATEGORY";
+export const SET_SORT = "SET_SORT";
+
 
 //action creator function olustur
 export const setCategories= (category)=>({
@@ -52,8 +55,14 @@ type:SET_FILTER,
 payload:filter,
 });
 
+export const setCategory = (categoryId) => ({
+  type: SET_CATEGORY,
+  payload: categoryId,
+});
 
-/*set user
-set roles
-set theme
-set language*/
+export const setSort = (sort) => ({
+  type: SET_SORT,
+  payload: sort,
+});
+
+

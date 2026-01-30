@@ -1,15 +1,20 @@
 
-import { SET_CATEGORIES,SET_PRODUCT_LIST,SET_TOTAL,SET_FETCH_STATE_CATEGORIES,SET_FETCH_STATE_PRODUCTS,SET_LIMIT,SET_OFFSET,SET_FILTER} from "../actions/productActions";
+import { SET_CATEGORIES,SET_PRODUCT_LIST,SET_TOTAL,SET_FETCH_STATE_CATEGORIES,SET_FETCH_STATE_PRODUCTS,SET_LIMIT,SET_OFFSET,SET_FILTER,SET_CATEGORY,SET_SORT} from "../actions/productActions";
 
 const initialState = {
-  categories: [],     // array
-  productList: [],    // array
-  total: 0,           // number
-  limit: 12,          // number
-  offset: 0,          // number
-  filter: "",         // string
-  fetchStateCategories: "NOT_FETCHED", // categories fetch durumu
-  fetchStateProducts: "NOT_FETCHED",   // products fetch durumu
+  categories: [],
+  productList: [],
+  total: 0,
+
+  limit: 12,
+  offset: 0,
+
+  category: null, // 🔥 seçili kategori
+  filter: "",
+  sort: "",
+
+  fetchStateCategories: "NOT_FETCHED",
+  fetchStateProducts: "NOT_FETCHED",
 };
 
 
@@ -40,7 +45,22 @@ export default function productReducer(state = initialState, action) {
     return { ...state, offset: action.payload };
 
   case SET_FILTER:
-    return { ...state, filter: action.payload };
+    return { ...state, filter: action.payload,offset: 0, };
+
+    case SET_CATEGORY:
+  return {
+    ...state,
+    category: action.payload,
+    offset: 0, 
+  };
+
+case SET_SORT:
+  return {
+    ...state,
+    sort: action.payload,
+    offset: 0,
+  };
+
 
   default:
     return state;
