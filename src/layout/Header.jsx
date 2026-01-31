@@ -69,7 +69,7 @@ export default function Header() {
     return () => document.removeEventListener('click', handleClickOutside);
   }, [isShopOpen, isUserMenuOpen]);
 
-  // Fetch categories on mount
+  
   useEffect(() => {
     if (fetchStateCategories === 'NOT_FETCHED') {
       dispatch(categoriesThunk());
@@ -77,26 +77,26 @@ export default function Header() {
   }, [dispatch, fetchStateCategories]);
 
   return (
-    <nav className='border w-full flex justify-center relative'>
+    <nav className=' w-full flex justify-center relative'>
       <div className='w-full lg:max-w-[1440px] max-w-[414px] h-[91px] flex justify-center items-center lg:gap-6'>
 
-        {/* Logo */}
+        
         <div className="w-[187px] h-[58px] flex items-center">
           <Link to="/" className="font-bold text-2xl md:text-3xl text-gray-900 font-montserrat hover:text-[#23a6f0] transition-colors">
             Bandage
           </Link>
         </div>
 
-        {/* Navbar İçerik */}
+        
         <div className="lg:w-[815px] h-[58px] w-[187px] flex items-center lg:justify-between justify-center">
 
-          {/* Desktop Navigation Links */}
+         
           <div className="hidden w-[361px] lg:flex items-center justify-between">
             <Link to="/" className='text-[#737373] font-montserrat font-bold text-sm leading-6 tracking-[0.2px] text-center hover:text-[#23a6f0] transition-colors'>
               Home
             </Link>
 
-            {/* Shop Dropdown */}
+          
             <div className="relative shop-dropdown-container">
               <button
                 onClick={handleShopOpen}
@@ -107,7 +107,7 @@ export default function Header() {
 
               {isShopOpen && (
                 <div className="absolute top-full left-0 mt-2 w-64 bg-white shadow-lg rounded-md py-3 z-50 border">
-                  {/* All Products */}
+                 
                   <Link
                     to="/shop"
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#23a6f0] transition-colors"
@@ -158,10 +158,10 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* Right Side Icons */}
+         
           <div className="flex flex-row justify-center items-center">
 
-            {/* Auth Links (Desktop) */}
+           
             {!user.email && (
               <div className="hidden lg:flex items-center gap-2 mr-4">
                 <Link to="/signin" className="text-[#23a6f0] hover:text-blue-700 font-medium px-2 py-2 rounded-lg transition-colors">
@@ -174,7 +174,6 @@ export default function Header() {
               </div>
             )}
 
-            {/* User Menu (Desktop) */}
             {user.email && (
               <div className="hidden relative lg:flex items-center gap-2 mr-4 user-menu-container">
                 <button
@@ -186,7 +185,7 @@ export default function Header() {
                 </button>
 
                 {isUserMenuOpen && (
-                  <div className="absolute right-0 top-full mt-2 w-40 bg-white border rounded-lg shadow-lg z-50 flex flex-col py-2">
+                  <div className="absolute right-0 top-full mt-2 w-40 bg-white  rounded-lg shadow-lg z-50 flex flex-col py-2">
                     <Link
                       to="/profile"
                       className="px-4 py-2 text-left hover:bg-gray-50 text-sm text-gray-700"
@@ -212,7 +211,7 @@ export default function Header() {
               </div>
             )}
 
-            {/* Icons */}
+           
             <button className="w-[46px] h-[46px] text-black lg:text-[#23a6f0] lg:hover:text-blue-700 p-2 hover:bg-gray-100 rounded-lg flex justify-center items-center transition-colors">
               <Search size={18} />
             </button>
@@ -226,7 +225,7 @@ export default function Header() {
               <Heart size={20} />
             </button>
 
-            {/* Mobile Menu Button */}
+            
             <button
               className="lg:hidden p-2 hover:bg-gray-100 rounded-lg cursor-pointer ml-2 transition-colors"
               onClick={handleMenuOpen}
