@@ -3,8 +3,16 @@ import { toast } from "react-toastify";
 import { useForm } from "react-hook-form";
 import { useDispatch } from 'react-redux';
 import { setSort} from "../../store/actions/productActions";
+import { useSelector } from "react-redux";
 
 export default function Filter() {
+const {total,categories,category} = useSelector((state) => state.product);
+
+const selectedCategory = categories.find(
+  (cat) => cat.id === category
+);
+
+
     const dispatch = useDispatch();
     const {
         register,
@@ -23,7 +31,8 @@ export default function Filter() {
     return (
         <div className="w-full  bg-white lg:flex justify-center">
             <div className=" w-full lg:max-w-[1050px] h-[98px] flex items-center justify-between">
-                <h6 className="font-montserrat font-bold text-sm leading-[24px] tracking-[0.2px] text-[#737373]">Showing 12 Results</h6>
+                <h6 className="font-montserrat font-bold text-sm leading-[24px] tracking-[0.2px] text-[#737373]">Showing total {total} Results From Category {selectedCategory?.title}
+</h6>
                 <div className='flex items-center justify-center gap-2'>
                     <h6 className="font-montserrat font-bold text-sm leading-[24px] tracking-[0.2px] text-[#737373]">Wievs:</h6>
                     <button className="p-2 rounded-md bg-gray-100 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">

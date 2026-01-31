@@ -9,7 +9,7 @@ const initialState = {
   limit: 12,
   offset: 0,
 
-  category: null, // 🔥 seçili kategori
+  category: null, 
   filter: "",
   sort: "",
 

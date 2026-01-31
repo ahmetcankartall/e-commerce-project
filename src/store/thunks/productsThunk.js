@@ -13,6 +13,7 @@ export const productsThunk = () => async (dispatch, getState) => {
     filter,
     sort,
   } = getState().product;
+  
 
   try {
     dispatch(setFetchStateProducts("FETCHING"));

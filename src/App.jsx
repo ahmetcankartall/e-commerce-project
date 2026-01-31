@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 
 import HomePage from './pages/HomePage';
 import ShopPage from './pages/ShopPage';
+import ProductDetail from './pages/ProductDetail';
 import SignupPage from  './pages/SignupPage';
 import SignInPage from './pages/SignInPage';
 import { useDispatch } from "react-redux";
@@ -30,6 +31,8 @@ function App() {
 
     <Route path="/signup" element={<SignupPage />} />
     <Route path="/signin" element={<SignInPage />} />
+    <Route path="/shop/:gender/:categoryName/:categoryId/:productNameSlug/:productId" element={<ProductDetail />} />
+    <Route path="/product" element={<ProductDetail />} />
     </Routes>
       </div>
       

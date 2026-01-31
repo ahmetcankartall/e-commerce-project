@@ -8,18 +8,25 @@ function ProductCards() {
   const dispatch = useDispatch();
   const{categoryId}=useParams();
 
-  const { productList, total, limit, offset, fetchStateProducts,filter,sort } =
+  const { productList, total, limit, offset, fetchStateProducts,filter,sort,category} =
     useSelector((state) => state.product);
 
   const currentPage = Math.floor(offset / limit) + 1;
   const totalPages = Math.ceil(total / limit);
 
- useEffect(() => {
-  dispatch(productsThunk());
-  if(categoryId){
+useEffect(() => {
+  if (categoryId) {
     dispatch(setCategory(Number(categoryId)));
+  } else {
+    dispatch(setCategory(null));
   }
-}, [dispatch,limit, offset, categoryId, filter, sort]);
+
+  dispatch(setOffset(0)); // kategori değişince sayfa reset
+}, [dispatch, categoryId]);
+
+useEffect(() => {
+  dispatch(productsThunk());
+}, [dispatch, limit, offset, filter, sort,category]);
 
   const handlePageChange = (page) => {
     dispatch(setOffset((page - 1) * limit));
