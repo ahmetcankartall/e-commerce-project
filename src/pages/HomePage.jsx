@@ -29,8 +29,8 @@ export default function HomePage() {
       <SectionFive />
       <BestSeller />
       <SectionSix />
-      <HomePageBlog />
       <Clients />
+      <HomePageBlog />
     </PageContent>
   );
 }
