@@ -1,14 +1,13 @@
-// layout/PageContent.jsx
-import Footer from '../layout/Footer';
 
-export default function PageContent({navbar, header, breadcrumb, children,footerClass,footerBottomClass,footerLinkClass}) {
+
+export default function PageContent({navbar, header, breadcrumb, children,footer}) {
   return (
     <div>
       {navbar && <div>{navbar}</div>}
       {header && <div>{header}</div>}
       {breadcrumb && <div>{breadcrumb}</div>}
       <div>{children}</div>
-      <Footer className={footerClass} bottomBarClass={footerBottomClass} footerLinkClass={footerLinkClass} />
+      {footer && <div>{footer}</div>}
     </div>
   );
 }

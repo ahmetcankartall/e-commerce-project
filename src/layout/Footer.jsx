@@ -1,171 +1,157 @@
 import { Link } from "react-router";
 import { Phone,Mail,MapPin,Instagram,Facebook,Twitter} from 'lucide-react';
-export default function Footer({
-  className = "",
-  bottomBarClass = "",
-  footerLinkClass="",
-}) {
+export default function Footer() {
   return (
-    <footer
-  className={`w-full flex flex-col items-center justify-center bg-[#252b42] text-current ${className}`}
->
-
+    <footer className="w-full bg-[#252b42] text-white  flex flex-col items-center justify-center">
       <div className="w-full lg:max-w-[1050px] flex flex-col md:flex-row md:justify-between items-center gap-2 p-10 ">
         <div className="text-center md:text-left max-w-md">
-          <p className="text-sm md:text-lg font-bold">&copy; Consulting Agency For Your Business</p>
-          <p className="text-xs md:text-sm font-bold">The quick fox jumps over the lazy dog</p>
+          <p className="text-sm md:text-lg text-white">&copy; Consulting Agency For Your Business</p>
+          <p className="text-xs md:text-sm text-white">The quick fox jumps over the lazy dog</p>
         </div>
 
         <div className="max-w-xs mt-6 md:mt-0 w-full md:w-auto flex justify-start">
-         <button className=" text-white font-montserrat font-bold text-[14px] leading-[22px] tracking-[0.2px] text-center bg-cyan-600 w-[160px] h-[53px] rounded hover:bg-cyan-800 transition-colors 
-">
+         <button className="font-mono bg-cyan-600 text-white w-[160px] h-[53px] md:text-lg rounded hover:bg-cyan-800 transition-colors flex items-center justify-center">
   Contact Us
 </button>
 
         </div>
         
-      </div >
+      </div>
       <div className="w-full lg:max-w-[1050px] max-w-[414px] lg:h-[270px]  p-12 flex lg:flex-row flex-col  gap-[30px]">
-      <div className={`w-full flex flex-col max-w-[148px]`}>
-        <h5 className="font-montserrat font-bold text-[16px] leading-[24px] tracking-[0.1px]">Company info</h5>
-         <div className={`flex flex-col ${footerLinkClass}`}>
+      <div className="w-full flex flex-col  max-w-[148px]">
+        <h5 className="font-montserrat font-bold">Company info</h5>
              <Link
                       to="/"
-                      className="hover:text-blue-700  py-2 transition-colors font-montserrat font-bold text-[14px] leading-[24px] tracking-[0.2px]"
+                      className="text-[#23a6f0] hover:text-blue-700 font-medium py-2 transition-colors"
                       
                     >
                       About Us
                     </Link>
                     <Link
                       to="/"
-                      className="hover:text-blue-700  py-2 transition-colors font-montserrat font-bold text-[14px] leading-[24px] tracking-[0.2px]"
+                      className="text-[#23a6f0] hover:text-blue-700 font-medium py-2 transition-colors"
                       
                     >
                       Carrier
                     </Link>
                     <Link
                       to="/"
-                      className=" hover:text-blue-700  py-2 transition-colors font-montserrat font-bold text-[14px] leading-[24px] tracking-[0.2px]"
+                      className="text-[#23a6f0] hover:text-blue-700 font-medium py-2 transition-colors"
                       
                     >
                      We are Hiring
                     </Link>
                     <Link
                       to="/"
-                      className=" hover:text-blue-700  py-2 transition-colors font-montserrat font-bold text-[14px] leading-[24px] tracking-[0.2px]"
+                      className="text-[#23a6f0] hover:text-blue-700 font-medium py-2 transition-colors"
                       
                     >
                       Blog
                     </Link>
-          </div>
+          
       </div>
-       <div className={`w-full flex flex-col max-w-[148px]`}>
-        <h5 className="font-montserrat font-bold text-[16px] leading-[24px] tracking-[0.1px]">Legal</h5>
-        <div className={`flex flex-col ${footerLinkClass}`}>
+        <div className="w-full flex flex-col  max-w-[148px]">
+        <h5 className="font-montserrat font-bold">Legal</h5>
              <Link
                       to="/"
-                      className=" hover:text-blue-700  py-2 transition-colors font-montserrat font-bold text-[14px] leading-[24px] tracking-[0.2px]"
+                      className="text-[#23a6f0] hover:text-blue-700 font-medium py-2 transition-colors"
                       
                     >
                       About Us
                     </Link>
                     <Link
                       to="/"
-                      className=" hover:text-blue-700  py-2 transition-colors font-montserrat font-bold text-[14px] leading-[24px] tracking-[0.2px]"
+                      className="text-[#23a6f0] hover:text-blue-700 font-medium py-2 transition-colors"
                       
                     >
                      Carrier
                     </Link>
                     <Link
                       to="/"
-                      className=" hover:text-blue-700  py-2 transition-colors font-montserrat font-bold text-[14px] leading-[24px] tracking-[0.2px]"
+                      className="text-[#23a6f0] hover:text-blue-700 font-medium py-2 transition-colors"
                       
                     >
                       We are hiring
                     </Link>
                     <Link
                       to="/"
-                      className=" hover:text-blue-700  py-2 transition-colors font-montserrat font-bold text-[14px] leading-[24px] tracking-[0.2px]"
+                      className="text-[#23a6f0] hover:text-blue-700 font-medium py-2 transition-colors"
                       
                     >
                       Blog
                     </Link>
-          </div>
+          
       </div>
-        <div className={`w-full flex flex-col max-w-[148px]`}>
-        <h5 className="font-montserrat font-bold text-[16px] leading-[24px] tracking-[0.1px]">Features</h5>
-        <div className={`flex flex-col ${footerLinkClass}`}>
+        <div className="w-full flex flex-col  max-w-[148px]">
+        <h5 className="font-montserrat font-bold">Features</h5>
              <Link
                       to="/"
-                      className=" hover:text-blue-700  py-2 transition-colors ${footerLinkClass} font-montserrat font-bold text-[14px] leading-[24px] tracking-[0.2px]"
+                      className="text-[#23a6f0] hover:text-blue-700 font-medium py-2 transition-colors"
                       
                     >
                       Business marketing
                     </Link>
                     <Link
                       to="/"
-                      className=" hover:text-blue-700  py-2 transition-colors font-montserrat font-bold text-[14px] leading-[24px] tracking-[0.2px]"
+                      className="text-[#23a6f0] hover:text-blue-700 font-medium py-2 transition-colors"
                       
                     >
                       User Analytic
                     </Link>
                     <Link
                       to="/"
-                      className=" hover:text-blue-700  py-2 transition-colors font-montserrat font-bold text-[14px] leading-[24px] tracking-[0.2px]"
+                      className="text-[#23a6f0] hover:text-blue-700 font-medium py-2 transition-colors"
                       
                     >
                       Live Chat
                     </Link>
                     <Link
                       to="/"
-                      className=" hover:text-blue-700  py-2 transition-colors font-montserrat font-bold text-[14px] leading-[24px] tracking-[0.2px]"
+                      className="text-[#23a6f0] hover:text-blue-700 font-medium py-2 transition-colors"
                       
                     >
                       Unlimited Support
                     </Link>
-          </div>
+          
       </div>
-       <div className={`w-full flex flex-col max-w-[148px]`}>
-        <h5 className="font-montserrat font-bold text-[16px] leading-[24px] tracking-[0.1px]">Resources</h5>
-        <div className={`flex flex-col ${footerLinkClass}`}>
+        <div className="w-full flex flex-col  max-w-[148px]">
+        <h5 className="font-montserrat font-bold">Resources</h5>
              <Link
                       to="/"
-                      className=" hover:text-blue-700  py-2 transition-colors font-montserrat font-bold text-[14px] leading-[24px] tracking-[0.2px]"
+                      className="text-[#23a6f0] hover:text-blue-700 font-medium py-2 transition-colors"
                       
                     >
                       IOS & Android
                     </Link>
                     <Link
                       to="/"
-                      className=" hover:text-blue-700  py-2 transition-colors font-montserrat font-bold text-[14px] leading-[24px] tracking-[0.2px]"
+                      className="text-[#23a6f0] hover:text-blue-700 font-medium py-2 transition-colors"
                       
                     >
                       Watch a Demo
                     </Link>
                     <Link
                       to="/"
-                      className=" hover:text-blue-700  py-2 transition-colors font-montserrat font-bold text-[14px] leading-[24px] tracking-[0.2px]"
+                      className="text-[#23a6f0] hover:text-blue-700 font-medium py-2 transition-colors"
                       
                     >
                       Customers
                     </Link>
                     <Link
                       to="/"
-                      className=" hover:text-blue-700  py-2 transition-colors font-montserrat font-bold text-[14px] leading-[24px] tracking-[0.2px]"
+                      className="text-[#23a6f0] hover:text-blue-700 font-medium py-2 transition-colors"
                       
                     >
                       API
                     </Link>
-                    </div>
           
-      </div >
+      </div>
     
-       <div className={`w-full flex flex-col max-w-[321px]`}>
-        <h5 className="font-montserrat font-bold text-[16px] leading-[24px] tracking-[0.1px]">Get in Touch</h5>
-        <div className={`flex flex-col ${footerLinkClass}`}>
+        <div className="w-full flex flex-col  max-w-[321px]">
+        <h5 className="font-montserrat font-bold">Get in Touch</h5>
              <Link
                       to="/"
-                      className=" hover:text-blue-700 py-2 transition-colors flex flex-row gap-4 font-montserrat font-bold text-[14px] leading-[24px] tracking-[0.2px]"
+                      className="text-[#23a6f0] hover:text-blue-700 font-medium py-2 transition-colors flex flex-row gap-4"
                       
                     >
                       <Phone size={24}/>
@@ -174,30 +160,28 @@ export default function Footer({
                  
                     <Link
                       to="/"
-                      className=" hover:text-blue-700  py-2 transition-colors flex flex-row gap-4 font-montserrat font-bold text-[14px] leading-[24px] tracking-[0.2px]"
+                      className="text-[#23a6f0] hover:text-blue-700 font-medium py-2 transition-colors flex flex-row gap-4"
                       
                     >  <MapPin size={24}/>
                       4517 Washington Ave. 
                     </Link>
                     <Link
                       to="/"
-                      className=" hover:text-blue-700 py-2 transition-colors  flex flex-row gap-4 font-montserrat font-bold text-[14px] leading-[24px] tracking-[0.2px]"
+                      className="text-[#23a6f0] hover:text-blue-700 font-medium py-2 transition-colors  flex flex-row gap-4"
                       
                     >
                       <Mail size={24}/>
-                      ahmet@gmail.com
+                      About Us
                     </Link>
-                    </div>
           
       </div>
         </div>
-        <div className={`w-full flex justify-center ${bottomBarClass} `}>
-        <div className=" w-full lg:max-w-[1050px] max-w-[414px] flex lg:flex-row flex-col lg:justify-between lg:gap-0 items-center">
+        <div className=" w-full lg:max-w-[1050px] max-w-[414px] flex lg:flex-row flex-col lg:justify-between lg:gap-0  items-center ">
           <h6 className="flex items-center justify-center  px-10">Made With Love By Finland All Right Reserved </h6>
           <div className="flex flex-row w-[336px] gap-6  justify-center " >
             <Link
                       to="/"
-                      className=" hover:text-blue-700  py-2 transition-colors  flex flex-row gap-4 text-[#23a6f0] ${footerLinkClass}"
+                      className="text-[#23a6f0] hover:text-blue-700 font-medium py-2 transition-colors  flex flex-row gap-4"
                       
                     >
                      <Facebook size={24}/>
@@ -205,7 +189,7 @@ export default function Footer({
                     </Link>
                     <Link
                       to="/"
-                      className=" hover:text-blue-700  py-2 transition-colors  flex flex-row gap-4 text-[#23a6f0]"
+                      className="text-[#23a6f0] hover:text-blue-700 font-medium py-2 transition-colors  flex flex-row gap-4"
                       
                     >
                       <Instagram size={24}/>
@@ -213,7 +197,7 @@ export default function Footer({
                     </Link>
                     <Link
                       to="/"
-                      className=" hover:text-blue-700  py-2 transition-colors  flex flex-row gap-4 text-[#23a6f0]"
+                      className="text-[#23a6f0] hover:text-blue-700 font-medium py-2 transition-colors  flex flex-row gap-4"
                       
                     > <Twitter size={24}/>
                       
@@ -223,7 +207,6 @@ export default function Footer({
             
 
           </div>
-        </div>
         </div>
     </footer>
   );

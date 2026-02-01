@@ -8,6 +8,7 @@ import CategoryBlock from '../components/shoppage/CategoryBlock';
 import ProductCards from '../components/shoppage/ProductCards';
 import Clients from '../components/home/Clients';
 import Filter from '../components/shoppage/Filter';
+import ShopPageFooter from '../components/shoppage/ShopPageFooter';
 
 
 
@@ -15,7 +16,7 @@ import Filter from '../components/shoppage/Filter';
 
 function ShopPage() {
   return (
-<PageContent header={<Header />} navbar={<NavBar />} breadcrumb={<Breadcrumb />} footerClass="bg-white text-black" footerBottomClass="bg-[#fafafa]" footerLinkClass="text-[#737373]">
+<PageContent header={<Header />} navbar={<NavBar />} breadcrumb={<Breadcrumb />} footer={<ShopPageFooter />}>
      <CategoryBlock />
      <Filter />
      <ProductCards />
