@@ -152,14 +152,14 @@ export default function ShopPageFooter() {
         <div className="w-full flex flex-col  max-w-[321px] gap-4 ">
         <h5 className="font-montserrat font-bold">Get in Touch</h5>
         <div className="">
-              <div className="flex w-full h-[58px]  -blue-500 rounded overflow-hidden">
+              <div className="flex w-full h-[58px]  -blue-500 rounded overflow-hidden ">
     <input
       type="email"
       placeholder="Your Email"
-      className="flex-1 px-4 text-sm outline-none "
+      className="flex-1 px-4 text-sm outline-none rounded-sm border"
     />
 
-    <button className="bg-[#23a6f0] text-white px-6 font-montserrat font-bold text-[14px] tracking-[0.2px] hover:bg-blue-600 transition">
+    <button className="bg-[#23a6f0] text-white px-6 font-montserrat font-bold text-[14px] tracking-[0.2px] hover:bg-blue-600 transition rounded-sm">
       Subscribe
     </button>
   </div>

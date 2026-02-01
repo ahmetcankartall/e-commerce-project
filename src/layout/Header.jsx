@@ -78,7 +78,7 @@ export default function Header() {
 
   return (
     <nav className=' w-full flex justify-center relative'>
-      <div className='w-full lg:max-w-[1050px] max-w-[414px] h-[91px] flex justify-center items-center lg:gap-6 border'>
+      <div className='w-full lg:max-w-[1050px] max-w-[414px] h-[91px] flex justify-center items-center lg:gap-6 '>
 
         
         <div className="w-[187px] h-[58px] flex items-center">
@@ -106,7 +106,7 @@ export default function Header() {
               </button>
 
               {isShopOpen && (
-                <div className="absolute top-full left-0 mt-2 w-64 bg-white shadow-lg rounded-md py-3 z-50 border">
+                <div className="absolute top-full left-0 mt-2 w-64 bg-white shadow-lg rounded-md py-3 z-50 ">
                  
                   <Link
                     to="/shop"

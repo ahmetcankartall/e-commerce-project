@@ -2,8 +2,8 @@ import { Link } from "react-router";
 import { Phone,Mail,MapPin,Instagram,Facebook,Twitter} from 'lucide-react';
 export default function Footer() {
   return (
-    <footer className="w-full bg-[#252b42] text-white  flex flex-col items-center justify-center">
-      <div className="w-full lg:max-w-[1050px] flex flex-col md:flex-row md:justify-between items-center gap-2 p-10 ">
+    <footer className="w-full bg-[#252b42] text-white  flex flex-col items-center justify-center border">
+      <div className="w-full lg:max-w-[1050px] flex flex-col md:flex-row md:justify-between items-center gap-2 py-10 border">
         <div className="text-center md:text-left max-w-md">
           <p className="text-sm md:text-lg text-white">&copy; Consulting Agency For Your Business</p>
           <p className="text-xs md:text-sm text-white">The quick fox jumps over the lazy dog</p>
@@ -17,7 +17,7 @@ export default function Footer() {
         </div>
         
       </div>
-      <div className="w-full lg:max-w-[1050px] max-w-[414px] lg:h-[270px]  p-12 flex lg:flex-row flex-col  gap-[30px]">
+      <div className="w-full lg:max-w-[1050px] max-w-[414px] lg:h-[270px]  py-10 flex lg:flex-row flex-col justify-between  ">
       <div className="w-full flex flex-col  max-w-[148px]">
         <h5 className="font-montserrat font-bold">Company info</h5>
              <Link
