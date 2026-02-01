@@ -15,7 +15,7 @@ import Filter from '../components/shoppage/Filter';
 
 function ShopPage() {
   return (
-<PageContent header={<Header />} navbar={<NavBar />} breadcrumb={<Breadcrumb />}>
+<PageContent header={<Header />} navbar={<NavBar />} breadcrumb={<Breadcrumb />} footerClass="bg-white text-black" footerBottomClass="bg-[#fafafa]" footerLinkClass="text-[#737373]">
      <CategoryBlock />
      <Filter />
      <ProductCards />

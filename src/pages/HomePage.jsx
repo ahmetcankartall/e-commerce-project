@@ -20,7 +20,7 @@ import PageContent from '../layout/PageContent';
 
 export default function HomePage() {
   return (
-    <PageContent header={<Header/>}>
+    <PageContent header={<Header/>} footerClass="text-white">
       
       <SectionOne />
       <SectionTwo />
