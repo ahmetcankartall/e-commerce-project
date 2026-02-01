@@ -78,7 +78,7 @@ export default function Header() {
 
   return (
     <nav className=' w-full flex justify-center relative'>
-      <div className='w-full lg:max-w-[1440px] max-w-[414px] h-[91px] flex justify-center items-center lg:gap-6'>
+      <div className='w-full lg:max-w-[1050px] max-w-[414px] h-[91px] flex justify-center items-center lg:gap-6 border'>
 
         
         <div className="w-[187px] h-[58px] flex items-center">
