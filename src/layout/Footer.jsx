@@ -1,15 +1,15 @@
 import { Link } from "react-router";
-import { Phone,Mail,MapPin,Instagram,Facebook,Twitter} from 'lucide-react';
+import { Phone,Mail,MapPin,Instagram,Facebook,Twitter,Youtube } from 'lucide-react';
 export default function Footer() {
   return (
-    <footer className="w-full bg-[#252b42] text-white  flex flex-col items-center justify-center border">
-      <div className="w-full lg:max-w-[1050px] flex flex-col md:flex-row md:justify-between items-center gap-2 py-10 border">
-        <div className="text-center md:text-left max-w-md">
+    <footer className="w-full bg-[#252b42] text-white  flex flex-col items-center justify-center ">
+      <div className="w-full lg:max-w-[1050px] max-w-[239px] flex flex-col md:flex-row md:justify-between items-center gap-2 py-10 ">
+        <div className="text-center md:text-left max-w-md ">
           <p className="text-sm md:text-lg text-white">&copy; Consulting Agency For Your Business</p>
           <p className="text-xs md:text-sm text-white">The quick fox jumps over the lazy dog</p>
         </div>
 
-        <div className="max-w-xs mt-6 md:mt-0 w-full md:w-auto flex justify-start">
+        <div className="max-w-[236px] mt-6 md:mt-0 w-full md:w-auto flex justify-start ">
          <button className="font-mono bg-cyan-600 text-white w-[160px] h-[53px] md:text-lg rounded hover:bg-cyan-800 transition-colors flex items-center justify-center">
   Contact Us
 </button>
@@ -17,7 +17,7 @@ export default function Footer() {
         </div>
         
       </div>
-      <div className="w-full lg:max-w-[1050px] max-w-[414px] lg:h-[270px]  py-10 flex lg:flex-row flex-col justify-between  ">
+      <div className="w-full lg:max-w-[1050px] max-w-[239px] lg:h-[270px]  py-10 flex lg:flex-row flex-col justify-between  ">
       <div className="w-full flex flex-col  max-w-[148px]">
         <h5 className="font-montserrat font-bold">Company info</h5>
              <Link
@@ -176,12 +176,12 @@ export default function Footer() {
           
       </div>
         </div>
-        <div className=" w-full lg:max-w-[1050px] max-w-[414px] flex lg:flex-row flex-col lg:justify-between lg:gap-0  items-center ">
-          <h6 className="flex items-center justify-center  px-10">Made With Love By Finland All Right Reserved </h6>
-          <div className="flex flex-row w-[336px] gap-6  justify-center " >
+        <div className=" w-full lg:max-w-[1050px] max-w-[239px] flex lg:flex-row flex-col lg:justify-between lg:gap-0 gap-[50px] items-center ">
+          <h6 className="flex items-center lg:justify-center justify-start  ">Made With Love By Finland All Right Reserved </h6>
+          <div className="flex flex-row lg:w-[336px] gap-6  justify-center items-center " >
             <Link
                       to="/"
-                      className="text-[#23a6f0] hover:text-blue-700 font-medium py-2 transition-colors  flex flex-row gap-4"
+                      className="text-[#23a6f0] hover:text-blue-700 font-medium transition-colors  flex flex-row gap-4"
                       
                     >
                      <Facebook size={24}/>
@@ -189,7 +189,7 @@ export default function Footer() {
                     </Link>
                     <Link
                       to="/"
-                      className="text-[#23a6f0] hover:text-blue-700 font-medium py-2 transition-colors  flex flex-row gap-4"
+                      className="text-[#23a6f0] hover:text-blue-700 font-medium transition-colors  flex flex-row gap-4"
                       
                     >
                       <Instagram size={24}/>
@@ -197,9 +197,16 @@ export default function Footer() {
                     </Link>
                     <Link
                       to="/"
-                      className="text-[#23a6f0] hover:text-blue-700 font-medium py-2 transition-colors  flex flex-row gap-4"
+                      className="text-[#23a6f0] hover:text-blue-700 font-medium transition-colors  flex flex-row gap-4"
                       
                     > <Twitter size={24}/>
+                      
+                    </Link>
+                     <Link
+                      to="/"
+                      className="lg:hidden flex text-[#23a6f0] hover:text-blue-700 font-medium transition-colors  flex flex-row gap-4"
+                      
+                    > <Youtube size={24} className="lg:hidden flex text-red-500"/>
                       
                     </Link>
             
