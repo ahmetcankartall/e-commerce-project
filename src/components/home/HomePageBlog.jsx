@@ -17,7 +17,7 @@ export default function HomePageBlog() {
       <div className="w-full lg:max-w-[1050px] max-w-[414px] lg:min-h-[994px] min-h-[2252px] flex flex-col gap-20 lg:justify-center items-center lg:py-28 py-20">
         
         {/* HEADER */}
-        <div className="border items-center lg:w-[692px] w-[300px] lg:h-[84px] h-[134px] gap-20">
+        <div className=" items-center lg:w-[692px] w-[300px] lg:h-[84px] h-[134px] gap-20">
           <h6 className="font-sans font-bold text-sm leading-6 tracking-[0.2px] text-center text-[#23A6F0]">
             Practice Advice
           </h6>
