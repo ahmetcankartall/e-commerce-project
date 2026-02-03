@@ -10,18 +10,17 @@ export default function BestSeller() {
 
   const URL = "http://192.168.1.6:5000/api/cards";
   const { data, isLoading, error } = useQuery({
-    queryKey: ["cards"], // Query key'i "cards" olarak değiştirdim
-    queryFn: () => axios.get(URL).then(res => res.data), // Axios ile API çağrısı
-    staleTime: 1000 * 10, // 10 saniye boyunca "taze" kalır
+    queryKey: ["cards"], 
+    queryFn: () => axios.get(URL).then(res => res.data), 
+    staleTime: 1000 * 10, 
   });
-  console.log("isLoading:", isLoading); // 👈 Takip et!
+  console.log("isLoading:", isLoading); 
   console.log("error:", error);
-  // DİKKAT: useQuery'de "isPending" değil "isLoading" kullanılır!
+  
   if (isLoading) return (<span>Loading...</span>);
   if (error) return (<span>Error: {error.message}</span>);
 
-  // DİKKAT 2: Data yapısı { cards: [...] } şeklinde geliyor!
-  // Önce data.cards'a erişmeliyiz
+
   const cards = data?.cards || [];
   console.log("productcard", cards);
   console.log("productcard", data);
@@ -33,22 +32,22 @@ export default function BestSeller() {
      <section className="w-full">
   <div className="w-full max-w-[414px] lg:max-w-[1124px] mx-auto min-h-[620px] lg:py-[48px] flex flex-col gap-6 items-center px-4 lg:px-0">
 
-    {/* TITLE */}
+  
     <div className="w-full lg:w-[1040px] min-h-[32px] flex items-center">
       <p className="font-montserrat font-bold text-xl lg:text-[24px] leading-[32px] tracking-[0.1px] text-[#252B42]">
         BEST SELLER PRODUCTS
       </p>
     </div>
 
-    {/* DIVIDER */}
+    
     <div className="w-full lg:w-[1040px] h-[2px] bg-[#ECECEC]" />
 
-    {/* CARDS */}
+    
     <div className="w-full lg:w-[1049px] flex flex-col lg:flex-row lg:justify-between flex-wrap gap-6">
       {cards.slice(0, 4).map((card) => (
         <div key={card.id} className="w-full lg:w-[238px] h-auto flex flex-col items-center">
 
-          {/* IMAGE */}
+         
           <div className="w-full lg:h-[280px] flex items-center justify-center">
             <img
               src={card.image}
