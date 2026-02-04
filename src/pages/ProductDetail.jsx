@@ -6,7 +6,9 @@ import PageContent from '../layout/PageContent';
 import NavBar from '../components/shoppage/NavBar';
 import ShopPageFooter from '../components/shoppage/ShopPageFooter';
 import Clients from '../components/home/Clients';
-
+import ProductSummary from '../components/productdetail/ProductSummary';
+import ProductInfo from '../components/productdetail/ProductInfo';
+import BestSellerProductDetail from '../components/productdetail/BestSellerProductDetail';
 
 
 
@@ -15,7 +17,9 @@ import Clients from '../components/home/Clients';
 export default function ProductDetail() {
   return (
     <PageContent header={<Header/>} navbar={<NavBar />} breadcrumb={<BreadcrumbProduct />} footer={<ShopPageFooter />}>
-      
+      <ProductSummary />
+     <ProductInfo />
+     <BestSellerProductDetail />
     <Clients />
     </PageContent>
   );
