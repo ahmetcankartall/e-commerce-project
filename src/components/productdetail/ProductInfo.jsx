@@ -34,7 +34,7 @@ export default function ProductInfo() {
 
 Met minim Mollie non desert Alamo est sit cliquey dolor do met sent. RELIT official consequent door ENIM RELIT Mollie. Excitation venial consequent sent nostrum met.
 
-Met minim Mollie non desert Alamo est sit cliquey dolor do met sent. RELIT official consequent door ENIM RELIT Mollie. Excitation venial consequent sent nostrum met.</h6>
+Met minim Mollie non desert Alamo est sit cliquey dolor do met sent. RELIT official consequent door ENIM RELIT Mollie. Excitation venial consequent sent nostrum met.RELIT official consequent door ENIM RELIT Mollie. Excitation venial consequent sent nostrum met.RELIT official consequent door ENIM RELIT Mollie. Excitation venial consequent sent nostrum met.RELIT official consequent door ENIM RELIT Mollie. Excitation venial consequent sent nostrum met.</h6>
  
 </div>
 <div className=" w-full lg:max-w-[332px] lg:h-[367px] max-w-[332px] h-[367px]  flex  flex-col justify-between">
