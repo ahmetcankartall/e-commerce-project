@@ -10,17 +10,24 @@ export const SET_OFFSET = 'SET_OFFSET'
 export const SET_FILTER= 'SET_FILTER'
 export const SET_CATEGORY = "SET_CATEGORY";
 export const SET_SORT = "SET_SORT";
-
+export const SET_PRODUCT="SET_PRODUCT";
 
 //action creator function olustur
+
+export const setProduct = (product) => ({
+  type: SET_PRODUCT,
+  payload: product,
+});
+
+
 export const setCategories= (category)=>({
 type:SET_CATEGORIES,
 payload:category,
 });
 
-export const setProductList = (product)=>({
+export const setProductList = (products)=>({
 type:SET_PRODUCT_LIST,
-payload:product,
+payload:products,
 });
 
 
