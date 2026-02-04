@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { categoriesThunk } from '../store/thunks/categoriesThunk';
-import { Search, ShoppingBasket, Heart, Menu, LogOut, ChevronDown } from 'lucide-react';
+import { Search, ShoppingBasket, Heart, Menu, LogOut, ChevronDown, } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Gravatar from 'react-gravatar';

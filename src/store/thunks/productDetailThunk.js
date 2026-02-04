@@ -1,44 +1,23 @@
 import axios from "axios";
 import {
-  setProductList,
+  setProduct,
   setFetchStateProducts,
-  setTotal,
 } from "../actions/productActions";
 
-export const productDetailThunk = () => async (dispatch, getState) => {
-  const {
-   productList,
-  } = getState().product;
-  
-
+export const productDetailThunk = (productId) => async (dispatch) => {
   try {
     dispatch(setFetchStateProducts("FETCHING"));
 
-    //dolu alanları eklıyoruz boşsa ona göre query atıyor
-    const params = {
-      limit,
-      offset,
-    };
-
-    if (category) {
-      params.category = category;
-    }
-
-    if (filter) {
-      params.filter = filter;
-    }
-
-    if (sort) {
-      params.sort = sort;
-    }
+    // --- TEST İÇİN GECİKME EKLE (2 Saniye) ---
+    // Bu satır thunk'ın 2 saniye boyunca burada durmasını sağlar.
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+    // -----------------------------------------
 
     const response = await axios.get(
-      "https://workintech-fe-ecommerce.onrender.com/products",
-      { params }
+      `https://workintech-fe-ecommerce.onrender.com/products/${productId}`
     );
 
-    dispatch(setProductList(response.data.products));
-    dispatch(setTotal(response.data.total));
+    dispatch(setProduct(response.data));
     dispatch(setFetchStateProducts("FETCHED"));
   } catch (error) {
     dispatch(setFetchStateProducts("ERROR"));
