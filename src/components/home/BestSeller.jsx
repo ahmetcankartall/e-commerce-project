@@ -45,7 +45,7 @@ export default function BestSeller() {
     
     <div className="w-full lg:w-[1049px] flex flex-col lg:flex-row lg:justify-between flex-wrap gap-6">
       {cards.slice(0, 4).map((card) => (
-        <div key={card.id} className="w-full lg:w-[238px] h-auto flex flex-col items-center">
+        <div key={card.id} className="w-full lg:w-[238px] h-auto flex flex-col items-center border">
 
          
           <div className="w-full lg:h-[280px] flex items-center justify-center">
