@@ -3,7 +3,7 @@ import { setCategories, setFetchStateCategories } from "../actions/productAction
 
 export const categoriesThunk = () => async (dispatch) => {
   try {
-    dispatch(setFetchStateCategories("LOADING"));  // fetch başladığını store’a bildir
+    dispatch(setFetchStateCategories("FETCHING"));  // fetch başladığını store’a bildir
     const response = await axios.get(
       "https://workintech-fe-ecommerce.onrender.com/categories"
     );
