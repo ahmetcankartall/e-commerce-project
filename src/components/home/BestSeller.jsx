@@ -1,26 +1,28 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { productsThunk } from "../../store/thunks/productsThunk";
+import { bestsellerThunk } from "../../store/thunks/bestsellerThunk";
 import { Loader2 } from "lucide-react";
 
 export default function BestSeller() {
 const dispatch = useDispatch();
-const { productList,fetchStateProducts} = useSelector((state) => state.product);
-  const bestSellerProducts = [...productList]
-    .sort((a, b) => b.sell_count - a.sell_count)
-    .slice(0, 4);
+const { bestSellerList, fetchStateProducts } = useSelector(
+  (state) => state.product
+);
+const bestSellerProducts = bestSellerList;
+
+
 
 
 
  useEffect(() => {
-    if (productList.length === 0 && fetchStateProducts === "NOT_FETCHED") {
-      dispatch(productsThunk());
+    if (bestSellerList.length === 0 && fetchStateProducts === "NOT_FETCHED") {
+      dispatch(bestsellerThunk());
     }
-  }, [dispatch, productList.length, fetchStateProducts]);
+  }, [dispatch, bestSellerList.length, fetchStateProducts]);
 
 
 
-if (!productList.length) {
+if (fetchStateProducts === "FETCHING") {
   return (
     <div className="w-full min-h-[300px] flex flex-col items-center justify-center gap-3">
       <Loader2 className="w-8 h-8 text-[#23a6f0] animate-spin" />
@@ -60,14 +62,14 @@ if (!productList.length) {
           </div>
 
           {/* CONTENT */}
-          <div className="w-full lg:h-[162px] pt-6 lg:pt-[25px] px-4 lg:px-[25px] pb-8 lg:pb-[35px] flex flex-col gap-2 lg:gap-[10px] items-start justify-center">
-            <p className="font-montserrat font-bold text-base lg:text-[16px] text-[#252B42] leading-[24px] tracking-[0.1px] flex">
+          <div className="w-full lg:h-[162px] pt-6 lg:pt-[25px] px-4 lg:px-[25px] pb-8 lg:pb-[35px] flex flex-col gap-2 lg:gap-[10px] items-start justify-center mt-3">
+            <p className="font-montserrat font-bold text-base lg:text-[16px] text-[#252B42] leading-[24px] tracking-[0.1px] flex line-clamp-1 min-h-[48px]">
               {card.name}
             </p>
-            <p className="font-montserrat font-bold text-sm lg:text-[14px] leading-[24px] tracking-[0.2px] text-[#737373] line-clamp-1 ">
+            <p className="font-montserrat font-bold text-sm lg:text-[14px] leading-[24px] tracking-[0.2px] text-[#737373] line-clamp-2 min-h-[48px] overflow-hidden ">
               {card.description}
             </p>
-            <div className="flex flex-row items-center justify-center gap-2 lg:gap-5">
+            <div className="flex flex-row items-center justify-center gap-2 lg:gap-5 min-h-[24px]">
               <p className="font-montserrat font-bold text-base lg:text-[16px] leading-[24px] text-[#BDBDBD] tracking-[0.1px] text-center">
                 156.32$
               </p>

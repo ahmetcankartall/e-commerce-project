@@ -11,12 +11,17 @@ export const SET_FILTER= 'SET_FILTER'
 export const SET_CATEGORY = "SET_CATEGORY";
 export const SET_SORT = "SET_SORT";
 export const SET_PRODUCT="SET_PRODUCT";
+export const SET_BESTSELLER_LIST = "SET_BESTSELLER_LIST";
 
 //action creator function olustur
 
 export const setProduct = (product) => ({
   type: SET_PRODUCT,
   payload: product,
+});
+export const setBestSellerList = (products) => ({
+  type: SET_BESTSELLER_LIST,
+  payload: products,
 });
 
 
