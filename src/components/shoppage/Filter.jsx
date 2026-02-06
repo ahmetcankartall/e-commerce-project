@@ -36,7 +36,7 @@ export default function Filter() {
   };
 
     return (
-        <div className="w-full  bg-white lg:flex justify-center">
+        <div className="hidden w-full  bg-white lg:flex justify-center">
             <div className=" w-full lg:max-w-[1050px] h-[98px] flex items-center justify-between">
                 <h6 className="font-montserrat font-bold text-sm leading-[24px] tracking-[0.2px] text-[#737373]">{`Showing total ${total} Results From Category ${selectedCategory?.title ?? "All Categories"}`}
 
