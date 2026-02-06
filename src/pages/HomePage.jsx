@@ -27,8 +27,9 @@ export default function HomePage() {
       <SectionThree />
       <SectionFour />
       <SectionFive />
-      <BestSeller />
       <SectionSix />
+      <BestSeller />
+      
       <Clients />
       <HomePageBlog />
     </PageContent>

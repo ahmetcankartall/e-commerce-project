@@ -7,7 +7,8 @@ import { useQuery } from "@tanstack/react-query";
 
 
 export default function SectionSix() {
-  const URL = "http://192.168.1.6:5000/api/cards";
+ const URL = `${import.meta.env.VITE_API_URL}/api/cards`;
+
   const { data, isLoading, error } = useQuery({
     queryKey: ["cards"], // Query key'i "cards" olarak değiştirdim
     queryFn: () => axios.get(URL).then(res => res.data), // Axios ile API çağrısı
@@ -32,7 +33,7 @@ export default function SectionSix() {
   return (
      <div className=" w-full lg:max-w-[1440px] lg:mx-auto 
   min-h-[700px] lg:min-h-[886px] flex flex-col gap-6 lg:gap-0 
-  pt-12 lg:pt-0 pb-12 lg:pb-0 px-4 lg:px-0">
+  pt-12 lg:pt-0 pb-12 lg:pb-0 px-4 lg:px-0  items-center flex justify-center">
 
   {/* ÜST KISIM: iki kolon */}
   <div className="w-full lg:max-w-[1077px] lg:mx-auto flex flex-col lg:flex-row gap-6 lg:gap-0 ">

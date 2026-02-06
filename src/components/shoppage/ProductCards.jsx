@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { productsThunk } from "../../store/thunks/productsThunk";
-import { setCategory, setOffset } from "../../store/actions/productActions";
+import { setCategory, setOffset,resetFilters } from "../../store/actions/productActions";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 
@@ -31,8 +31,13 @@ useEffect(() => {
     dispatch(setCategory(null));
   }
 
-  dispatch(setOffset(0)); // kategori değişince sayfa reset
+  
 }, [dispatch, categoryId]);
+
+useEffect(() => {
+  dispatch(resetFilters());
+}, [dispatch, category]);
+
 
 useEffect(() => {
   dispatch(productsThunk());

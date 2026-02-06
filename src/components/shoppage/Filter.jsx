@@ -4,34 +4,42 @@ import { useForm } from "react-hook-form";
 import { useDispatch } from 'react-redux';
 import { setSort } from "../../store/actions/productActions";
 import { useSelector } from "react-redux";
+import { useEffect } from "react";
 
 export default function Filter() {
-    const { total, categories, category } = useSelector((state) => state.product);
+  const { total, categories, category, sort } = useSelector(
+    (state) => state.product
+  );
 
-    const selectedCategory = categories.find(
-        (cat) => cat.id === category
-    );
+  const selectedCategory = categories.find(
+    (cat) => cat.id === category
+  );
 
+  const dispatch = useDispatch();
 
-    const dispatch = useDispatch();
-    const {
-        register,
-        handleSubmit,
+  const {
+    register,
+    handleSubmit,
+    setValue,
+  } = useForm({
+    defaultValues: { order: "" },
+    mode: "all",
+  });
 
-    } = useForm({
-        defaultValues: { order: "" },
-        mode: "all",
-    });
-    const onSubmit = (data) => {
-        dispatch(setSort(data.order)); // Redux state güncelle
-        toast.success("You have filtered some products");
-    };
+  useEffect(() => {
+    setValue("order", sort || "");
+  }, [sort, setValue]);
 
+  const onSubmit = (data) => {
+    dispatch(setSort(data.order));
+    toast.success("You have filtered some products");
+  };
 
     return (
         <div className="w-full  bg-white lg:flex justify-center">
             <div className=" w-full lg:max-w-[1050px] h-[98px] flex items-center justify-between">
-                <h6 className="font-montserrat font-bold text-sm leading-[24px] tracking-[0.2px] text-[#737373]">Showing total {total} Results From Category {selectedCategory?.title}
+                <h6 className="font-montserrat font-bold text-sm leading-[24px] tracking-[0.2px] text-[#737373]">{`Showing total ${total} Results From Category ${selectedCategory?.title ?? "All Categories"}`}
+
                 </h6>
                 <div className='flex items-center justify-center gap-2'>
                     <h6 className="font-montserrat font-bold text-sm leading-[24px] tracking-[0.2px] text-[#737373]">Wievs:</h6>
@@ -54,8 +62,13 @@ export default function Filter() {
                             <option value="" disabled>
                                 Select filter
                             </option>
-                            <option value="price:asc">Ascending Order</option>
-                            <option value="price:desc">Descending Order</option>
+                            
+                            <option value="price:asc">Price Ascending Order</option>
+                            <option value="price:desc">Price Descending Order</option>
+                            <option value="sell_count:desc">Best Seller Descending Order</option>
+                            <option value="sell_count:asc">Best Seller Ascending Order</option>
+                             <option value="rating:asc">Rating Ascending</option>
+                              <option value="rating:desc">Rating Descending</option>
                         </select>
 
                         <button

@@ -1,10 +1,11 @@
 
-import { SET_BESTSELLER_LIST,SET_CATEGORIES,SET_PRODUCT_LIST,SET_TOTAL,SET_FETCH_STATE_CATEGORIES,SET_FETCH_STATE_PRODUCTS,SET_LIMIT,SET_OFFSET,SET_FILTER,SET_CATEGORY,SET_SORT,SET_PRODUCT} from "../actions/productActions";
+import { SET_GENDER_BESTSELLER_LIST,  RESET_FILTERS,SET_BESTSELLER_LIST,SET_CATEGORIES,SET_PRODUCT_LIST,SET_TOTAL,SET_FETCH_STATE_CATEGORIES,SET_FETCH_STATE_PRODUCTS,SET_LIMIT,SET_OFFSET,SET_FILTER,SET_CATEGORY,SET_SORT,SET_PRODUCT} from "../actions/productActions";
 
 const initialState = {
   categories: [],
   productList: [],
   bestSellerList: [],
+  genderBestSellerList: [],
   total: 0,
   product:null,
   limit: 12,
@@ -27,8 +28,22 @@ export default function productReducer(state = initialState, action) {
     case SET_PRODUCT:
       return {...state, product:action.payload};
 
+case SET_GENDER_BESTSELLER_LIST:
+  return {
+    ...state,
+    genderBestSellerList: action.payload,
+  };
+
 case SET_BESTSELLER_LIST:
   return { ...state, bestSellerList: action.payload };
+
+case RESET_FILTERS:
+  return  {
+    ...state,
+    filter: initialState.filter,
+    sort: initialState.sort,
+    offset: 0,
+  };
 
   case SET_CATEGORIES:
     return { ...state, categories: action.payload };

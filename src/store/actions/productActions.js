@@ -12,7 +12,8 @@ export const SET_CATEGORY = "SET_CATEGORY";
 export const SET_SORT = "SET_SORT";
 export const SET_PRODUCT="SET_PRODUCT";
 export const SET_BESTSELLER_LIST = "SET_BESTSELLER_LIST";
-
+export const RESET_FILTERS = "RESET_FILTERS";
+export const SET_GENDER_BESTSELLER_LIST = "SET_GENDER_BESTSELLER_LIST";
 //action creator function olustur
 
 export const setProduct = (product) => ({
@@ -24,7 +25,15 @@ export const setBestSellerList = (products) => ({
   payload: products,
 });
 
+export const setGenderBestSellerList = (list) => ({
+  type: SET_GENDER_BESTSELLER_LIST,
+  payload: list,
+});
 
+
+export const resetFilters = () => ({
+  type: RESET_FILTERS,
+});
 export const setCategories= (category)=>({
 type:SET_CATEGORIES,
 payload:category,

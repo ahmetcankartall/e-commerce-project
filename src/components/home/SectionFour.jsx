@@ -32,7 +32,7 @@ export default function SectionFour() {
   return (
     <div className="w-full lg:max-w-[1440px] lg:mx-auto 
   min-h-[700px] lg:min-h-[886px] flex flex-col gap-6 lg:gap-0 
-  pt-12 lg:pt-0 pb-12 lg:pb-0 px-4 lg:px-0">
+  pt-12 lg:pt-0 pb-12 lg:pb-0 px-4 lg:px-0 items-center flex justify-center">
 
   {/* ÜST KISIM: iki kolon */}
   <div className="w-full lg:max-w-[1069px] lg:mx-auto flex flex-col lg:flex-row gap-6 lg:gap-0">
