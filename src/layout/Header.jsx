@@ -25,6 +25,7 @@ export default function Header({ onCartOpen }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const [isShopOpen, setIsShopOpen] = useState(false);
+const [isMobileShopOpen, setIsMobileShopOpen] = useState(false);
 
   
 
@@ -127,7 +128,7 @@ export default function Header({ onCartOpen }) {
                         </p>
                         {categories.map(category => (
                           <Link
-                            key={category.id || category._id} // id varsa kullan, yoksa _id
+                            key={category.id}
                             to={`/shop/${category.gender}/${category.title}/${category.id}`}
                             className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#23a6f0] transition-colors"
                             onClick={() => setIsShopOpen(false)}
@@ -241,100 +242,83 @@ export default function Header({ onCartOpen }) {
             <div className="flex flex-col items-center py-6 gap-4 text-lg">
               <Link
                 to="/"
-                className="text-gray-700 hover:text-[#23a6f0] font-montserrat py-2 transition-colors w-full text-center"
+                className="text-[#737373]  font-montserrat font-normal text-[30px] leading-[45px] tracking-[0.2px] text-center
+"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Home
               </Link>
 
               {/* Mobile Shop Dropdown */}
-              <div className="w-full flex flex-col items-center border-t border-b py-2">
+              <div className="w-full flex flex-col items-center    py-2">
                 <button
-                  onClick={() => setIsShopOpen(!isShopOpen)}
-                  className="text-gray-700 hover:text-[#23a6f0] font-montserrat flex items-center gap-2 py-2"
+                  onClick={() => setIsMobileShopOpen(!isMobileShopOpen)}
+                  className="text-[#737373] hover:text-[#23a6f0] font-montserrat font-normal text-[30px] leading-[45px] tracking-[0.2px] flex items-center gap-2 py-2"
                 >
                   Shop <ChevronDown size={16} className={isShopOpen ? "rotate-180 transition-transform" : "transition-transform"} />
                 </button>
 
-                {isShopOpen && (
-                  <div className="mt-2 flex flex-col items-center gap-2 w-full px-4">
+                {isMobileShopOpen && (
+                  <div className="mt-2 flex flex-col items-center gap-2 w-full px-4 ">
                     <Link
-                      to="/shop/all-products"
-                      className="text-gray-600 hover:text-[#23a6f0] text-base py-1 transition-colors"
+                      to="/shop"
+                      className="text-gray-600 hover:text-[#23a6f0] text-base py-1 transition-colors font-normal  "
                       onClick={() => setIsMenuOpen(false)}
                     >
                       All Products
                     </Link>
 
-                    {/* Women Categories Mobile */}
-                    {womenCategories.length > 0 && (
-                      <div className="w-full text-left">
-                        <p className="text-sm font-semibold text-gray-500 mt-2 mb-1">Women</p>
-                        {womenCategories.map(category => (
+                    {[
+                    { title: "Women", categories: womenCategories },
+                    { title: "Men", categories: menCategories }
+                  ].map(({ title, categories }) =>
+                    categories.length > 0 && (
+                      <div key={title} className="border-t pt-2 mt-2">
+                        <p className="px-4 py-1 text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                          {title}
+                        </p>
+                        {categories.map(category => (
                           <Link
-                            key={category._id}
-                            to={`/shop/category/${category._id}`}
-                            className="block text-gray-600 hover:text-[#23a6f0] text-sm py-1 pl-4 transition-colors"
+                            key={category.id} 
+                            to={`/shop/${category.gender}/${category.title}/${category.id}`}
+                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#23a6f0] transition-colors"
                             onClick={() => setIsMenuOpen(false)}
                           >
-                            {category.name}
+                            {category.title}
                           </Link>
                         ))}
                       </div>
-                    )}
-
-                    {/* Men Categories Mobile */}
-                    {menCategories.length > 0 && (
-                      <div className="w-full text-left">
-                        <p className="text-sm font-semibold text-gray-500 mt-2 mb-1">Men</p>
-                        {menCategories.map(category => (
-                          <Link
-                            key={category._id}
-                            to={`/shop/category/${category._id}`}
-                            className="block text-gray-600 hover:text-[#23a6f0] text-sm py-1 pl-4 transition-colors"
-                            onClick={() => setIsMenuOpen(false)}
-                          >
-                            {category.name}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-
-                    <Link
-                      to="/shop/sale"
-                      className="text-red-600 hover:text-red-700 text-base py-1 font-semibold transition-colors mt-2"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      Sale
-                    </Link>
+                    )
+                  )}
+                  
                   </div>
                 )}
               </div>
 
               <Link
                 to="/about"
-                className="text-gray-700 hover:text-[#23a6f0] font-montserrat py-2 transition-colors w-full text-center"
+                className="text-[#737373] hover:text-[#23a6f0] font-montserrat font-normal text-[30px] leading-[45px] tracking-[0.2px] flex items-center gap-2 py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
                 About
               </Link>
               <Link
                 to="/blog"
-                className="text-gray-700 hover:text-[#23a6f0] font-montserrat py-2 transition-colors w-full text-center"
+                className="text-[#737373] hover:text-[#23a6f0] font-montserrat font-normal text-[30px] leading-[45px] tracking-[0.2px] flex items-center gap-2 py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Blog
               </Link>
               <Link
                 to="/contact"
-                className="text-gray-700 hover:text-[#23a6f0] font-montserrat py-2 transition-colors w-full text-center"
+                className="text-[#737373] hover:text-[#23a6f0] font-montserrat font-normal text-[30px] leading-[45px] tracking-[0.2px] flex items-center gap-2 py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Contact
               </Link>
               <Link
                 to="/pages"
-                className="text-gray-700 hover:text-[#23a6f0] font-montserrat py-2 transition-colors w-full text-center"
+                className="text-[#737373] hover:text-[#23a6f0] font-montserrat font-normal text-[30px] leading-[45px] tracking-[0.2px] flex items-center gap-2 py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Pages
@@ -346,14 +330,14 @@ export default function Header({ onCartOpen }) {
                   <div className="flex flex-col items-center gap-3">
                     <Link
                       to="/signin"
-                      className="text-[#23a6f0] hover:text-blue-700 font-medium py-2 transition-colors"
+                      className="text-[#23a6f0] hover:text-blue-700 font-medium py-2 transition-colors font-montserrat font-normal text-[30px] leading-[45px] tracking-[0.2px]"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       Login
                     </Link>
                     <Link
                       to="/signup"
-                      className="text-[#23a6f0] hover:text-blue-700 font-medium py-2 transition-colors"
+                      className="text-[#23a6f0] hover:text-blue-700 font-medium py-2 transition-colors font-montserrat font-normal text-[30px] leading-[45px] tracking-[0.2px]"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       Register

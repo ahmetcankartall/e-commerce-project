@@ -115,7 +115,7 @@ useEffect(() => {
             {product.description}
           </p>
 
-          <div className="w-[108px] h-[34px] flex justify-between items-center">
+          <div className="w-[108px] h-[34px] flex justify-center items-center gap-3">
             <span className="line-through text-[#BDBDBD] font-bold">
               ${product.price + 20}
             </span>

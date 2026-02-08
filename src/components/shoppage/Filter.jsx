@@ -36,13 +36,13 @@ export default function Filter() {
   };
 
     return (
-        <div className="hidden w-full  bg-white lg:flex justify-center">
-            <div className=" w-full lg:max-w-[1050px] h-[98px] flex items-center justify-between">
+        <div className=" w-full  bg-white lg:flex justify-center py-4">
+            <div className=" w-full lg:max-w-[1050px] lg:h-[98px] h-[216] flex items-center justify-between flex lg:flex-row flex-col gap-6 px-4 ">
                 <h6 className="font-montserrat font-bold text-sm leading-[24px] tracking-[0.2px] text-[#737373]">{`Showing total ${total} Results From Category ${selectedCategory?.title ?? "All Categories"}`}
 
                 </h6>
                 <div className='flex items-center justify-center gap-2'>
-                    <h6 className="font-montserrat font-bold text-sm leading-[24px] tracking-[0.2px] text-[#737373]">Wievs:</h6>
+                    <h6 className="font-montserrat font-bold text-sm leading-[24px] tracking-[0.2px] text-[#737373]">Views:</h6>
                     <button className="p-2 rounded-md bg-gray-100 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
                         <SquareMenu size={24} />
                     </button>
@@ -53,7 +53,7 @@ export default function Filter() {
                 <div >
                     <form
                         onSubmit={handleSubmit(onSubmit)}
-                        className="flex items-center gap-4 bg-[#f9f9f9] rounded-lg"
+                        className="flex items-center gap-4 bg-[#f9f9f9] rounded-lg "
                     >
                         <select
                             {...register("order", { required: true })}
