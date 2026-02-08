@@ -6,6 +6,9 @@ import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Gravatar from 'react-gravatar';
 import { setUser } from '../store/actions/clientActions';
+import { selectCartTotalCount } from '../store/selectors/cartTotalSelector';
+
+
 
 export default function Header({ onCartOpen }) {
   const dispatch = useDispatch();
@@ -13,6 +16,11 @@ export default function Header({ onCartOpen }) {
   // Redux store'dan kategoriler ve fetch state
   const categories = useSelector((state) => state.product.categories);
   const fetchStateCategories = useSelector((state) => state.product.fetchStateCategories);
+  
+  
+
+ const totalCount = useSelector(selectCartTotalCount);
+
 
   // Kullanıcı bilgisi
   const user = useSelector((state) => state.client.user);
@@ -213,16 +221,16 @@ const [isMobileShopOpen, setIsMobileShopOpen] = useState(false);
             )}
 
            
-            <button className="w-[46px] h-[46px] text-black lg:text-[#23a6f0] lg:hover:text-blue-700 p-2 hover:bg-gray-100 rounded-lg flex justify-center items-center transition-colors">
+            <button className="cursor-pointer w-[46px] h-[46px] text-black lg:text-[#23a6f0] lg:hover:text-blue-700 p-2 hover:bg-gray-100 rounded-lg flex justify-center items-center transition-colors">
               <Search size={18} />
             </button>
 
-            <button onClick={onCartOpen} className="w-[46px] h-[46px] lg:text-[#23a6f0] text-black lg:hover:text-blue-700 p-2 hover:bg-gray-100 rounded-lg relative flex justify-center items-center transition-colors">
+            <button onClick={onCartOpen} className="cursor-pointer w-[46px] h-[46px] lg:text-[#23a6f0] text-black lg:hover:text-blue-700 p-2 hover:bg-gray-100 rounded-lg relative flex justify-center items-center transition-colors">
               <ShoppingBasket size={20} />
-              <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">2</span>
+              <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">{totalCount ? totalCount : 0}</span>
             </button>
 
-            <button className="hidden w-[46px] h-[46px] text-[#23a6f0] hover:text-blue-700 p-2 hover:bg-gray-100 rounded-lg lg:flex justify-center items-center transition-colors">
+            <button className="cursor-pointer hidden w-[46px] h-[46px] text-[#23a6f0] hover:text-blue-700 p-2 hover:bg-gray-100 rounded-lg lg:flex justify-center items-center transition-colors">
               <Heart size={20} />
             </button>
 

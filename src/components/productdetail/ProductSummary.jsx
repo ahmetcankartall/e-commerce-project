@@ -5,7 +5,8 @@ import  Stars  from "./Stars"; // Süslü parantez "named export" arar
 import { HeartPlus,ShoppingCart,Eye,Loader2} from "lucide-react";
 import { useParams } from "react-router-dom";
 import { productDetailThunk } from "../../store/thunks/productDetailThunk";
-
+import { toast } from "react-toastify";
+import { setCart } from "../../store/actions/shoppingCartActions";
 export default function ProductSummary() {
 
 const { productId } = useParams();
@@ -13,13 +14,30 @@ const dispatch = useDispatch();
 const { product, fetchStateProducts } = useSelector(
   (state) => state.product
 );
+const cart = useSelector((state) => state.shop.cart);
+
 
 useEffect(() => {
   dispatch(productDetailThunk(productId));
 }, [dispatch, productId]);
 
 
-
+const handleAddToCart = () => {
+  const currentCart = cart || [];
+  const isAlreadyInCart = currentCart.some(item => item.id === product.id);
+  let newCart;
+  if (isAlreadyInCart) {
+    newCart = currentCart.map((item )=> item.id ===product.id ? {...item, count: item.count+1}
+  : item); 
+  } else {
+    newCart = [...currentCart, { count: 1, checked: false, product: product }];
+  }
+  dispatch(setCart(newCart));
+  // Burada ürünü sepete ekleme işlemi yapılacak
+  // Örneğin, Redux action dispatch edilebilir veya localStorage güncellenebilir
+  
+  toast.success(`${product.name} has been added to your cart!`);
+}
 
 
 
@@ -90,7 +108,7 @@ if (!product || fetchStateProducts === 'FETCHING') {
     <HeartPlus strokeWidth={1.5} />
   </button>
 
-  <button className="w-10 h-10 flex items-center justify-center rounded-full bg-white shadow-lg hover:shadow-xl transition">
+  <button onClick={handleAddToCart} className="w-10 h-10 flex items-center justify-center rounded-full bg-white shadow-lg hover:shadow-xl transition cursor-pointer">
     <ShoppingCart strokeWidth={1.5}/>
   </button>
 
