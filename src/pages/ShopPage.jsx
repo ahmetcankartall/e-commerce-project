@@ -14,9 +14,9 @@ import ShopPageFooter from '../components/shoppage/ShopPageFooter';
 
 
 
-function ShopPage() {
+function ShopPage({ onCartOpen }) {
   return (
-<PageContent header={<Header />} navbar={<NavBar />} breadcrumb={<Breadcrumb />} footer={<ShopPageFooter />}>
+<PageContent header={<Header onCartOpen={onCartOpen}/>} navbar={<NavBar />} breadcrumb={<Breadcrumb />} footer={<ShopPageFooter />}>
      <CategoryBlock />
      <Filter />
      <ProductCards />

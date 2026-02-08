@@ -18,9 +18,9 @@ import Footer from '../layout/Footer';
 
 
 
-export default function HomePage() {
+export default function HomePage({ onCartOpen }) {
   return (
-    <PageContent header={<Header/>} footer={<Footer />}>
+    <PageContent header={<Header onCartOpen={onCartOpen}/>} footer={<Footer />}>
       
       <SectionOne />
       <SectionTwo />

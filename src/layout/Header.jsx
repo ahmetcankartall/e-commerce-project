@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 import Gravatar from 'react-gravatar';
 import { setUser } from '../store/actions/clientActions';
 
-export default function Header() {
+export default function Header({ onCartOpen }) {
   const dispatch = useDispatch();
 
   // Redux store'dan kategoriler ve fetch state
@@ -216,7 +216,7 @@ export default function Header() {
               <Search size={18} />
             </button>
 
-            <button className="w-[46px] h-[46px] lg:text-[#23a6f0] text-black lg:hover:text-blue-700 p-2 hover:bg-gray-100 rounded-lg relative flex justify-center items-center transition-colors">
+            <button onClick={onCartOpen} className="w-[46px] h-[46px] lg:text-[#23a6f0] text-black lg:hover:text-blue-700 p-2 hover:bg-gray-100 rounded-lg relative flex justify-center items-center transition-colors">
               <ShoppingBasket size={20} />
               <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">2</span>
             </button>

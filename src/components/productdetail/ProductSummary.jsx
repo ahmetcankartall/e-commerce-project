@@ -25,7 +25,9 @@ useEffect(() => {
 
 if (!product || fetchStateProducts === 'FETCHING') {
     return (
+      
       <div className="w-full min-h-[600px] flex flex-col items-center justify-center gap-4 bg-[#fafafa]">
+ <div className="fixed inset-0 bg-black/40 z-40" />
         <Loader2 className="w-12 h-12 text-[#23a6f0] animate-spin" />
         <p className="font-montserrat text-[#737373] animate-pulse">Ürün detayları yükleniyor...</p>
       </div>

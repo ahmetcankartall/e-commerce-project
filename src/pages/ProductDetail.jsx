@@ -14,9 +14,9 @@ import BestSellerProductDetail from '../components/productdetail/BestSellerProdu
 
 
 
-export default function ProductDetail() {
+export default function ProductDetail({onCartOpen}) {
   return (
-    <PageContent header={<Header/>} navbar={<NavBar />} breadcrumb={<BreadcrumbProduct />} footer={<ShopPageFooter />}>
+    <PageContent header={<Header onCartOpen={onCartOpen}/>}  navbar={<NavBar />} breadcrumb={<BreadcrumbProduct />} footer={<ShopPageFooter />}>
       <ProductSummary />
      <ProductInfo />
      <BestSellerProductDetail />
