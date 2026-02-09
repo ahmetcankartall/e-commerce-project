@@ -1,9 +1,14 @@
 import { SET_CART, SET_PAYMENT, SET_ADDRESS } from "../actions/shoppingCartActions";
 
+// localStorage'dan çek
+const cartFromStorage = localStorage.getItem("cart")
+  ? JSON.parse(localStorage.getItem("cart"))
+  : [];
+
 const initialState = {
-  cart: [],      // ürünler array
-  payment: {},   // payment info
-  address: {},   // address info
+  cart: cartFromStorage, // <- burada localStorage kullanıyoruz
+  payment: {},
+  address: {},
 };
 
 export default function shoppingCartReducer(state = initialState, action) {

@@ -6,7 +6,8 @@ import { HeartPlus,ShoppingCart,Eye,Loader2} from "lucide-react";
 import { useParams } from "react-router-dom";
 import { productDetailThunk } from "../../store/thunks/productDetailThunk";
 import { toast } from "react-toastify";
-import { setCart } from "../../store/actions/shoppingCartActions";
+
+import { addCartItem } from '../../store/thunks/cartThunks';
 export default function ProductSummary() {
 
 const { productId } = useParams();
@@ -14,7 +15,7 @@ const dispatch = useDispatch();
 const { product, fetchStateProducts } = useSelector(
   (state) => state.product
 );
-const cart = useSelector((state) => state.shop.cart);
+
 
 
 useEffect(() => {
@@ -23,21 +24,9 @@ useEffect(() => {
 
 
 const handleAddToCart = () => {
-  const currentCart = cart || [];
-  const isAlreadyInCart = currentCart.some(item => item.id === product.id);
-  let newCart;
-  if (isAlreadyInCart) {
-    newCart = currentCart.map((item )=> item.id ===product.id ? {...item, count: item.count+1}
-  : item); 
-  } else {
-    newCart = [...currentCart, { count: 1, checked: false, product: product }];
-  }
-  dispatch(setCart(newCart));
-  // Burada ürünü sepete ekleme işlemi yapılacak
-  // Örneğin, Redux action dispatch edilebilir veya localStorage güncellenebilir
-  
+  dispatch(addCartItem(product));
   toast.success(`${product.name} has been added to your cart!`);
-}
+};
 
 
 
@@ -92,13 +81,13 @@ if (!product || fetchStateProducts === 'FETCHING') {
 <h6 className=" text-[#23A6F0] font-montserrat font-bold text-sm leading-6 tracking-[0.2px]">In Stock {product.stock}</h6>
 </div>
 <p className=" font-montserrat font-normal text-sm leading-5 tracking-[0.2px] text-[#858585] w-full">{product.description}</p>
-<div class="w-full lg:max-w-[445px] max-w-[283px] border-t border-[#BDBDBD]"></div>
+<div className="w-full lg:max-w-[445px] max-w-[283px] border-t border-[#BDBDBD]"></div>
 
-<div class="flex gap-3">
-  <div class="w-[30px] h-[30px] rounded-full bg-[#23A6F0]"></div>
-  <div class="w-[30px] h-[30px] rounded-full bg-[#2DC071]"></div>
-  <div class="w-[30px] h-[30px] rounded-full bg-[#E77C40]"></div>
-  <div class="w-[30px] h-[30px] rounded-full bg-[#252B42]"></div>
+<div className="flex gap-3">
+  <div className="w-[30px] h-[30px] rounded-full bg-[#23A6F0]"></div>
+  <div className="w-[30px] h-[30px] rounded-full bg-[#2DC071]"></div>
+  <div className="w-[30px] h-[30px] rounded-full bg-[#E77C40]"></div>
+  <div className="w-[30px] h-[30px] rounded-full bg-[#252B42]"></div>
 </div>
 <div className=" flex flex-row gap-4">
    <button className="bg-[#23a6f0] font-montserrat font-bold text-sm leading-6 tracking-[0.2px] text-center text-white w-[148px] h-[44px] rounded-lg">
