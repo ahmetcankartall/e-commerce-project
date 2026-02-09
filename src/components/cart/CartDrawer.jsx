@@ -2,26 +2,26 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { X } from "lucide-react";
 import { Trash2 } from 'lucide-react';
-import { increaseCartItemCount, decreaseCartItemCount,deleteCartItemCount} from "../../store/thunks/cartThunks";
-import { selectCartTotalCount,selectCartGrandTotal } from "../../store/selectors/cartTotalSelector";
+import { increaseCartItemCount, decreaseCartItemCount, deleteCartItemCount } from "../../store/thunks/cartThunks";
+import { selectCartTotalCount, selectCartGrandTotal } from "../../store/selectors/cartTotalSelector";
 
 
 
 export default function CartDrawer({ isOpen, onClose }) {
-const dispatch = useDispatch();
-const carTotalCount = useSelector(selectCartTotalCount);
-const grandTotal = useSelector(selectCartGrandTotal);
+  const dispatch = useDispatch();
+  const carTotalCount = useSelector(selectCartTotalCount);
+  const grandTotal = useSelector(selectCartGrandTotal);
 
   // Drawer açıkken body scroll kapat
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "auto";
 
-    // cleanup (component unmount olursa garanti olsun)
+    // cleanup yapmam lazım
     return () => {
       document.body.style.overflow = "auto";
     };
   }, [isOpen]);
-const cart = useSelector((state) => state.shop.cart);
+  const cart = useSelector((state) => state.shop.cart);
   return (
     <>
       {/* Overlay */}
@@ -56,40 +56,40 @@ const cart = useSelector((state) => state.shop.cart);
         {/* Cart Items */}
         <div className="flex-1 overflow-y-auto px-4 py-4 flex flex-col gap-12 border-[#111111]">
 
-           {/* Örnek item */}
+          {/* Örnek item */}
 
-          {cart && cart.length > 0 ? (cart.map((item) => (  
+          {cart && cart.length > 0 ? (cart.map((item) => (
             <div key={item.product.id} className="flex items-center gap-4 border-b pb-4  border-[#111111] w-full lg:max-w-[500px] max-w-[414px] relative">
-            <img className="w-24 h-40 bg-gray-200 rounded-md flex-shrink-0 object-cover" src={item.product.images?.[0]?.url} alt={item.product.name} />
-            <div className="flex flex-col  gap-3   ">
-              
-              <span className="text-sm font-montserrat font-bold  w-full max-w-[400px] line-clamp-2 " >{item.product.name}</span>
-              <span className="text-xs text-gray-500 font-montserrat">{item.product.description}</span>
-              <span className="text-sm font-semibold mt-1 ">Fiyat : ₺{item.product.price}</span>
-              <div className="  flex flex-row  bg-[#f5f5f5] border border-[#efefef]  p-1  self-start rounded-lg" >
-                <button onClick={() => dispatch(decreaseCartItemCount(item.product.id))} className="px-2 py-1 text-sm  hover:cursor-pointer font-montserrat text-sm rounded-lg hover:bg-gray-200">-</button>
-                <span className="px-4 py-1 text-sm font-montserrat text-sm font-bold">{item.count}</span>
-                <button onClick={() => dispatch(increaseCartItemCount(item.product.id))} className="px-2 py-1 text-sm  hover:cursor-pointer rounded-lg font-montserrat text-sm hover:bg-gray-200">+</button>
-                
+              <img className="w-24 h-40 bg-gray-200 rounded-md flex-shrink-0 object-cover" src={item.product.images?.[0]?.url} alt={item.product.name} />
+              <div className="flex flex-col  gap-3   ">
+
+                <span className="text-sm font-montserrat font-bold  w-full max-w-[400px] line-clamp-2 " >{item.product.name}</span>
+                <span className="text-xs text-gray-500 font-montserrat">{item.product.description}</span>
+                <span className="text-sm font-semibold mt-1 ">Fiyat : ₺{item.product.price}</span>
+                <div className="  flex flex-row  bg-[#f5f5f5] border border-[#efefef]  p-1  self-start rounded-lg" >
+                  <button onClick={() => dispatch(decreaseCartItemCount(item.product.id))} className="px-2 py-1 text-sm  hover:cursor-pointer font-montserrat text-sm rounded-lg hover:bg-gray-200">-</button>
+                  <span className="px-4 py-1 text-sm font-montserrat text-sm font-bold">{item.count}</span>
+                  <button onClick={() => dispatch(increaseCartItemCount(item.product.id))} className="px-2 py-1 text-sm  hover:cursor-pointer rounded-lg font-montserrat text-sm hover:bg-gray-200">+</button>
+
+                </div>
+
               </div>
-              
-            </div>
-             <button
-             onClick={()=>dispatch(deleteCartItemCount(item.product.id))}
-              className="absolute bottom-6 right-5 p-1 rounded-full hover:bg-gray-100 cursor-pointer"
-              aria-label="Ürünü sil"
-            >
-               <Trash2 />
-            </button>
-          </div>))) : (
+              <button
+                onClick={() => dispatch(deleteCartItemCount(item.product.id))}
+                className="absolute bottom-6 right-5 p-1 rounded-full hover:bg-gray-100 cursor-pointer"
+                aria-label="Ürünü sil"
+              >
+                <Trash2 />
+              </button>
+            </div>))) : (
             <p className="text-gray-500 text-sm text-center mt-10">Sepetiniz boş</p>
-          )}  
+          )}
 
-        
 
-      
 
-        
+
+
+
         </div>
 
         {/* Footer */}

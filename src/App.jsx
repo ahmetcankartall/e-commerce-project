@@ -21,7 +21,7 @@ function App() {
     <>
       <ToastContainer />
 
-      {/* Navbar sabit olduğu için padding */}
+     
       <div className="">
         <Routes>
       <Route path="/" element={<HomePage onCartOpen={() => setIsCartOpen(true)} />} />

@@ -7,7 +7,7 @@ import { useQuery } from "@tanstack/react-query";
 
 
 export default function SectionFour() {
-  const URL = "http://192.168.1.6:5000/api/cards";
+  const URL = "http://192.168.1.9:5000/api/cards";
   const { data, isLoading, error } = useQuery({
     queryKey: ["cards"], // Query key'i "cards" olarak değiştirdim
     queryFn: () => axios.get(URL).then(res => res.data), // Axios ile API çağrısı
@@ -47,7 +47,7 @@ export default function SectionFour() {
     </div>
 
     {/* SAĞ KOLON */}
-    <div className=" w-full lg:basis-[401px] lg:grow-0 lg:shrink-0 lg:max-h-[649px] flex lg:flex-col lg:py-[80px] items-center bg-[#fafafa] box-border">
+    <div className=" w-full lg:basis-[401px] lg:grow-0 lg:shrink-0 lg:max-h-[649px] flex lg:flex-col lg:py-[80px] items-center bg-[#fafafa] box-border py-6">
       <div className=" max-w-[348px] w-full h-[604px] flex flex-col gap-[19px] mx-auto">
         <h5 className="font-montserrat font-bold text-[24px] leading-[32px] tracking-[0.1px] text-center text-[#252B42]">
           MOST POPULAR
@@ -62,12 +62,32 @@ export default function SectionFour() {
             className="w-full h-full object-cover"
           />
         </div>
-        <p className="font-montserrat font-bold text-[14px] leading-[24px] tracking-[0.2px] text-center text-[#252B42]">
-          BUY NOW
-        </p>
-        <p className="lg:px-[5px] lg:py-[3px] w-[108px] h-[34px] mx-auto text-center">
-          3 Dollars
-        </p>
+        <div className="w-full lg:h-[188px] h-[188px] pt-[25px] pb-9 gap-2.5 flex flex-col justify-center items-center">
+              <h5 className="font-montserrat font-bold text-base leading-6 tracking-[0.1px] text-center">
+                English Department
+              </h5>
+
+              <p className="w-[146px] h-[24px] overflow-hidden whitespace-nowrap text-ellipsis font-montserrat font-bold text-[14px] leading-[24px] tracking-[0.2px] text-center text-[#737373]">
+                English Department
+              </p>
+
+              <div className="w-[108px] h-[34px] flex justify-between items-center">
+                <span className="line-through text-[#BDBDBD] font-bold">
+                  $1533
+                </span>
+                <span className="text-[#23856D] font-bold">
+                  $1333
+                </span>
+              </div>
+
+              {/* renk noktaları (dummy) */}
+              <div className="w-[82px] h-[16px] flex justify-between">
+                <div className="w-3 h-3 rounded-full bg-[#23A6F0]" />
+                <div className="w-3 h-3 rounded-full bg-[#23856D]" />
+                <div className="w-3 h-3 rounded-full bg-[#E77C40]" />
+                <div className="w-3 h-3 rounded-full bg-[#23856D]" />
+              </div>
+            </div>
       </div>
     </div>
   </div>

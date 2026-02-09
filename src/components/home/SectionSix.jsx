@@ -1,5 +1,4 @@
-import axios from "axios";
-import { useQuery } from "@tanstack/react-query";
+
 
 
 
@@ -7,24 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 
 
 export default function SectionSix() {
- const URL = `${import.meta.env.VITE_API_URL}/api/cards`;
 
-  const { data, isLoading, error } = useQuery({
-    queryKey: ["cards"], // Query key'i "cards" olarak değiştirdim
-    queryFn: () => axios.get(URL).then(res => res.data), // Axios ile API çağrısı
-    staleTime: 1000 * 10, // 10 saniye boyunca "taze" kalır
-  });
-  console.log("isLoading:", isLoading); // 👈 Takip et!
-  console.log("error:", error);
-  // DİKKAT: useQuery'de "isPending" değil "isLoading" kullanılır!
-  if (isLoading) return (<span>Loading...</span>);
-  if (error) return (<span>Error: {error.message}</span>);
-
-  // DİKKAT 2: Data yapısı { cards: [...] } şeklinde geliyor!
-  // Önce data.cards'a erişmeliyiz
-  const cards = data?.cards || [];
-  console.log("productcard", cards);
-  console.log("productcard", data);
 
 
 
@@ -39,7 +21,7 @@ export default function SectionSix() {
   <div className="w-full lg:max-w-[1077px] lg:mx-auto flex flex-col lg:flex-row gap-6 lg:gap-0 ">
 
     {/* SOL KOLON */}
-   <div className=" w-full lg:basis-[401px] lg:grow-0 lg:shrink-0 lg:max-h-[784px] flex lg:flex-col lg:py-[80px] items-center bg-[#fafafa] box-border">
+   <div className=" w-full lg:basis-[401px] lg:grow-0 lg:shrink-0 lg:max-h-[784px] flex lg:flex-col lg:py-[80px] items-center bg-[#fafafa] box-border py-6">
       <div className="max-w-[348px] w-full h-[604px] flex flex-col gap-[19px] mx-auto">
         <h5 className="font-montserrat font-bold text-[24px] leading-[32px] tracking-[0.1px] text-center text-[#252B42]">
           MOST POPULAR

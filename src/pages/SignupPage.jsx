@@ -77,7 +77,7 @@ const payload = { ...data }; // kopyala
         console.error(err.response?.data?.message);
         setLoading(false);
       });
-  }, []);
+  }, [setLoading,setRoles,instance]);
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 p-4">

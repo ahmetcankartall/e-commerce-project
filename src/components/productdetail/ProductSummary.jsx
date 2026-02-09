@@ -45,23 +45,23 @@ if (!product || fetchStateProducts === 'FETCHING') {
 <div className=" w-full lg:max-w-[1050px] lg:min-h-[598px] max-w-[414px] min-h-[991px] flex lg:justify-between justify-center lg:flex-row flex-col lg:items-start items-center gap-3">
 
 {/* sol */}
-<div className=" w-full lg:max-w-[506px] lg:h-[546px] w-[348px] h-[394px] flex flex-col justify-between">
+<div className=" w-full lg:w-[506px] lg:h-[546px] w-[348px] h-[394px] flex flex-col justify-between items-center  ">
   <img
               src={product.images?.[0]?.url}
               alt="Ürün fotoğrafı"
-              className="w-full max-w-[506px] lg:h-[450px]  h-[277px] object-contain"
+              className="w-full max-w-[348px] lg:h-[450px]  h-[277px] object-cover object-top "
             />
 
-<div className=" w-full max-w-[219px] h-[75px] flex flex-row justify-between">
+<div className=" w-full max-w-[348px] h-[75px] flex flex-row  justify-left   ">
   <img
               src={product.images?.[0]?.url}
               alt="Ürün fotoğrafı"
-              className="w-full max-w-[100px] h-[75px]  object-contain"
+              className="w-full max-w-[100px] h-[75px] object-cover object-top"
             />
             <img
               src={product.images?.[0]?.url}
               alt="Ürün fotoğrafı"
-              className="w-full max-w-[100px] h-[75px]   object-contain"
+              className="w-full max-w-[100px] h-[75px]  object-cover object-top"
             />
 </div>
 
