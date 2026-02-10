@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import { ToastContainer} from 'react-toastify';
 import { useEffect,useState } from 'react';
-
+import Contact from './pages/Contact';
 import HomePage from './pages/HomePage';
 import ShopPage from './pages/ShopPage';
 import ProductDetail from './pages/ProductDetail';
@@ -25,7 +25,7 @@ function App() {
       <div className="">
         <Routes>
       <Route path="/" element={<HomePage onCartOpen={() => setIsCartOpen(true)} />} />
-
+      <Route path="/contact" element={<Contact onCartOpen={() => setIsCartOpen(true)} />} />
       {/* Shop routes */}
       <Route path="/shop" element={<ShopPage onCartOpen={() => setIsCartOpen(true)} />} />
 <Route path="/shop/:gender/:categoryName/:categoryId" element={<ShopPage  onCartOpen={() => setIsCartOpen(true)}/>} />
