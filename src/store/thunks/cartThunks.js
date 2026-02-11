@@ -1,4 +1,5 @@
-import { setCart } from "../actions/shoppingCartActions";
+import { setCart} from "../actions/shoppingCartActions";
+
 
 export const saveCartToLocalStorage = () => (dispatch, getState) => {
   const { cart } = getState().shop;
@@ -92,3 +93,11 @@ export const toggleCartItemChecked = (productId) => (dispatch, getState) => {
   dispatch(setCart(updatedCart));
   dispatch(saveCartToLocalStorage());
 };
+
+
+
+
+
+
+
+

@@ -5,13 +5,21 @@ import {
   deleteCartItemCount,
   toggleCartItemChecked,
 } from "../../store/thunks/cartThunks";
-
+import { toast } from 'react-toastify';
 import OrderSummary from "./OrderSummary";
 
 export default function CartBody() {
+      const showInfo = () => {
+    toast.info("Ürün sepetten kaldırıldı.");
+  };
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.shop.cart);
 
+
+
+  if (!cart || cart.length === 0) { 
+    return <p className="text-center text-gray-500 mt-10">Sepetiniz boş</p>;
+  }
   return (
     <div className="max-w-7xl mx-auto px-4 py-10 ">
       <div className="flex flex-col lg:flex-row gap-10">
@@ -36,7 +44,7 @@ export default function CartBody() {
               >
 
                 {/* PRODUCT */}
-                <div className="flex w-1/2 gap-4 items-start">
+                <div className="flex w-1/2 gap-4  items-center justify-start ">
 
                   {/* CHECKBOX */}
                   <input
@@ -45,7 +53,7 @@ export default function CartBody() {
                     onChange={() =>
                       dispatch(toggleCartItemChecked(item.product.id))
                     }
-                    className="mt-2"
+                    className="mt-2 h-[20px] w-[30px]"
                   />
 
                   <img
@@ -62,10 +70,11 @@ export default function CartBody() {
                       Beden: S
                     </span>
                     <button
-                      onClick={() =>
-                        dispatch(deleteCartItemCount(item.product.id))
-                      }
-                      className="text-xs underline text-gray-500 w-fit mt-2"
+                      onClick={() => {
+                        dispatch(deleteCartItemCount(item.product.id)); 
+                        showInfo();}
+                        }
+                      className="text-xs underline text-gray-500 w-fit mt-2 hover:text-gray-700 cursor-pointer"
                     >
                       Kaldır
                     </button>
@@ -84,7 +93,7 @@ export default function CartBody() {
                       onClick={() =>
                         dispatch(decreaseCartItemCount(item.product.id))
                       }
-                      className="text-lg"
+                      className="text-lg cursor-pointer"
                     >
                       −
                     </button>
@@ -95,7 +104,7 @@ export default function CartBody() {
                       onClick={() =>
                         dispatch(increaseCartItemCount(item.product.id))
                       }
-                      className="text-lg"
+                      className="text-lg cursor-pointer"
                     >
                       +
                     </button>

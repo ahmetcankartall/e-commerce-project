@@ -3,7 +3,7 @@ import { ToastContainer } from 'react-toastify';
 import { useEffect, useState, useCallback } from 'react';
 import { useDispatch } from "react-redux";
 import { verifyTokenThunk } from './store/thunks/verifyTokenThunk';
-
+import CheckoutPage from './pages/CheckoutPage';
 import Contact from './pages/Contact';
 import HomePage from './pages/HomePage';
 import ShopPage from './pages/ShopPage';
@@ -47,6 +47,7 @@ function App() {
         <Route path="/signup" element={<SignupPage onCartOpen={handleCartOpen} />} />
         <Route path="/signin" element={<SignInPage onCartOpen={handleCartOpen} />} />
         <Route path="/cart" element={<CartPage />} />
+        <Route path="/checkout" element={<CheckoutPage onCartOpen={handleCartOpen} />} />
         <Route path="/shop/:gender/:categoryName/:categoryId/:productNameSlug/:productId" element={<ProductDetail onCartOpen={handleCartOpen} />} />
       </Routes>
 

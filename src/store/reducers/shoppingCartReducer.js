@@ -8,7 +8,7 @@ const cartFromStorage = localStorage.getItem("cart")
 const initialState = {
   cart: cartFromStorage, // <- burada localStorage kullanıyoruz
   payment: {},
-  address: {},
+  address: [],
 };
 
 export default function shoppingCartReducer(state = initialState, action) {

@@ -3,8 +3,12 @@ import { useSelector } from "react-redux";
 import {
   selectCartGrandTotal
 } from "../../store/selectors/cartTotalSelector";
-
+import { toast } from 'react-toastify';
+import { Link } from "react-router-dom";
 export default function OrderSummary() {
+      const showSuccess = () => {
+    toast.success("Ödeme Sayfasına yönlendiriliyorsunuz.");
+  };
   const [accepted, setAccepted] = useState(false);
 
   const grandTotal = useSelector(selectCartGrandTotal);
@@ -108,7 +112,9 @@ export default function OrderSummary() {
       </label>
 
       {/* Checkout */}
+      <Link to="/checkout" className="w-full">
       <button
+      onClick={showSuccess}
         disabled={!accepted}
         className={`w-full py-3 rounded-full font-medium transition cursor-pointer hover:bg-cyan-700
           ${
@@ -120,6 +126,7 @@ export default function OrderSummary() {
       >
         Ödeme
       </button>
+      </Link>
     </div>
   );
 }

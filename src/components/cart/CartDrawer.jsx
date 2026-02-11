@@ -9,7 +9,7 @@ import { Link } from "react-router-dom"
 
 export default function CartDrawer({ isOpen, onClose }) {
   const dispatch = useDispatch();
-  const carTotalCount = useSelector(selectCartTotalCount);
+  const cartTotalCount = useSelector(selectCartTotalCount);
   const grandTotal = useSelector(selectCartGrandTotal);
 
   // Drawer açıkken body scroll kapat
@@ -43,7 +43,7 @@ export default function CartDrawer({ isOpen, onClose }) {
       >
         {/* Header */}
         <div className="flex items-center justify-between px-4 py-4 border-b ">
-          <h2 className="text-lg font-semibold">Sepetim ({carTotalCount})</h2>
+          <h2 className="text-lg font-semibold">Sepetim ({cartTotalCount})</h2>
           <button
             onClick={onClose}
             className="p-2 hover:bg-gray-100 rounded-lg"
