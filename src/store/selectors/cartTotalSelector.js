@@ -1,26 +1,15 @@
- export const selectCartTotalCount = (state) => {
-let total = 0;
+export const selectCheckedCartItems = (state) =>
+  state.shop.cart.filter(item => item.checked);
 
-state.shop.cart.map((item) => {
-total +=item.count;
+export const selectCartTotalCount = (state) =>
+  state.shop.cart
+    .filter(item => item.checked)
+    .reduce((total, item) => total + item.count, 0);
 
-
-
-
-} );
-return total;
-
- }
- 
-
-
-
- export const selectCartGrandTotal = (state) => {
-  let total = 0;
-
-  state.shop.cart.map((item) => {
-    total += item.count * item.product.price;
-  });
-
-  return total;
-};
+export const selectCartGrandTotal = (state) =>
+  state.shop.cart
+    .filter(item => item.checked)
+    .reduce(
+      (total, item) => total + item.count * item.product.price,
+      0
+    );

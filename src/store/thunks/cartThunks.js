@@ -74,3 +74,21 @@ export const addCartItem = (product) => (dispatch, getState) => {
   dispatch(setCart(updatedCart));
   dispatch(saveCartToLocalStorage());
 };
+
+
+
+
+
+
+export const toggleCartItemChecked = (productId) => (dispatch, getState) => {
+  const { cart } = getState().shop;
+
+  const updatedCart = cart.map(item =>
+    item.product.id === productId
+      ? { ...item, checked: !item.checked }
+      : item
+  );
+
+  dispatch(setCart(updatedCart));
+  dispatch(saveCartToLocalStorage());
+};
