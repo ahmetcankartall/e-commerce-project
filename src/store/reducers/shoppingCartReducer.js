@@ -1,4 +1,4 @@
-import { SET_CART, SET_PAYMENT, SET_ADDRESS } from "../actions/shoppingCartActions";
+import { SET_CART, SET_PAYMENT, SET_ADDRESS,CLEAR_CART } from "../actions/shoppingCartActions";
 
 // localStorage'dan çek
 const cartFromStorage = localStorage.getItem("cart")
@@ -21,6 +21,13 @@ export default function shoppingCartReducer(state = initialState, action) {
 
     case SET_ADDRESS:
       return { ...state, address: action.payload };
+      case CLEAR_CART:
+      // localStorage'dan da temizle
+      localStorage.removeItem("cart");
+      return { 
+        ...state, 
+        cart: [] 
+      };
 
     default:
       return state;
