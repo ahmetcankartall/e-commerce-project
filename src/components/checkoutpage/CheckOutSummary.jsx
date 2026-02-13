@@ -1,4 +1,4 @@
-
+import { useSelector } from "react-redux";
 
 import {
   selectCartGrandTotal
@@ -6,17 +6,14 @@ import {
 
 import { Link } from "react-router-dom";
 
-import { useDispatch, useSelector } from 'react-redux';
 
-import { Trash2 } from 'lucide-react';
-import { increaseCartItemCount, decreaseCartItemCount, deleteCartItemCount } from "../../store/thunks/cartThunks";
 
 
 
 
 
 export default function CheckOutSummary() {
-  const dispatch = useDispatch();
+
  
 const cart = useSelector((state) => state.shop.cart);
   const grandTotal = useSelector(selectCartGrandTotal);
