@@ -5,6 +5,7 @@ import { Trash2 } from 'lucide-react';
 import { increaseCartItemCount, decreaseCartItemCount, deleteCartItemCount } from "../../store/thunks/cartThunks";
 import { selectCartTotalCount, selectCartGrandTotal } from "../../store/selectors/cartTotalSelector";
 import { Link } from "react-router-dom"
+import PreviousOrders from "../previousorder/PreviousOrderBody";
 
 
 export default function CartDrawer({ isOpen, onClose }) {
@@ -103,9 +104,11 @@ export default function CartDrawer({ isOpen, onClose }) {
     Sepeti Görüntüle
   </button>
 </Link>
-          <button className="w-full bg-[#111111] text-white py-3 border rounded-full font-medium hover:cursor-pointer transition-colors">
-            Satın Al
-          </button>
+          <Link to="/previousorders" className="w-full">
+  <button onClick={onClose} className="w-full bg-[#111111] text-white py-3 rounded-full font-medium hover:bg-white hover:text-[#111111] hover:cursor-pointer border transition-colors">
+    Önceki Siparişlerim
+  </button>
+</Link>
 
         </div>
       </div>

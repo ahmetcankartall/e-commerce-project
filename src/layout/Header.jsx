@@ -203,7 +203,7 @@ const [isMobileShopOpen, setIsMobileShopOpen] = useState(false);
                       My Profile
                     </Link>
                     <Link
-                      to="/orders"
+                      to="/previousorders"
                       className="px-4 py-2 text-left hover:bg-gray-50 text-sm text-gray-700"
                       onClick={() => setIsUserMenuOpen(false)}
                     >
@@ -368,7 +368,7 @@ const [isMobileShopOpen, setIsMobileShopOpen] = useState(false);
                       My Profile
                     </Link>
                     <Link
-                      to="/orders"
+                      to="/previousorders"
                       className="text-gray-700 hover:text-[#23a6f0] font-medium"
                       onClick={() => setIsMenuOpen(false)}
                     >

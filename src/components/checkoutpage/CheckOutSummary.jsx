@@ -34,7 +34,7 @@ const cart = useSelector((state) => state.shop.cart);
   );
 
   return (
-    <div className="sticky top-24 bg-w rounded-2xl border p-6 flex flex-col gap-6 overflow-y-auto h-[800px]">
+    <div className="top-24 bg-w rounded-2xl border p-6 flex flex-col gap-6 overflow-y-auto h-[600px]">
 
       {/* Free Shipping */}
       <div className="flex flex-col gap-2">
@@ -87,21 +87,10 @@ const cart = useSelector((state) => state.shop.cart);
                 <span className="text-sm font-montserrat font-bold  w-full max-w-[400px] line-clamp-2 " >{item.product.name}</span>
                 <span className="text-xs text-gray-500 font-montserrat">{item.product.description}</span>
                 <span className="text-sm font-semibold mt-1 ">Fiyat : ₺{item.product.price}</span>
-                <div className="  flex flex-row  bg-[#f5f5f5] border border-[#efefef]  p-1  self-start rounded-lg" >
-                  <button onClick={() => dispatch(decreaseCartItemCount(item.product.id))} className="px-2 py-1 text-sm  hover:cursor-pointer font-montserrat text-sm rounded-lg hover:bg-gray-200">-</button>
-                  <span className="px-4 py-1 text-sm font-montserrat text-sm font-bold">{item.count}</span>
-                  <button onClick={() => dispatch(increaseCartItemCount(item.product.id))} className="px-2 py-1 text-sm  hover:cursor-pointer rounded-lg font-montserrat text-sm hover:bg-gray-200">+</button>
-
-                </div>
+               
 
               </div>
-              <button
-                onClick={() => dispatch(deleteCartItemCount(item.product.id))}
-                className="absolute bottom-6 right-5 p-1 rounded-full hover:bg-gray-100 cursor-pointer"
-                aria-label="Ürünü sil"
-              >
-                <Trash2 />
-              </button>
+            
             </div>))) : (
             <p className="text-gray-500 text-sm text-center mt-10">Sepetiniz boş</p>
           )}

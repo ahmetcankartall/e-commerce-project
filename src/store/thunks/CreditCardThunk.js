@@ -15,7 +15,7 @@ export const fetchCards = () => async (dispatch) => {
   try {
     setAuthHeader();
     const res = await axios.get(`${BASE_URL}/user/card`);
-    dispatch(setPayment(res.data));
+    dispatch(setPayment({ cards: res.data }));
   } catch (err) {
     console.error("Kartlar alınamadı", err);
   }

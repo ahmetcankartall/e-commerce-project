@@ -1,4 +1,12 @@
-import { SET_CART, SET_PAYMENT, SET_ADDRESS,CLEAR_CART } from "../actions/shoppingCartActions";
+import {
+  SET_CART,
+  SET_PAYMENT,
+  SET_ADDRESS,
+  CLEAR_CART,
+  SET_PREVIOUS_ORDERS,
+  SET_PREVIOUS_ORDERS_ERROR,
+  SET_PREVIOUS_ORDERS_LOADING
+} from "../actions/shoppingCartActions";
 
 // localStorage'dan çek
 const cartFromStorage = localStorage.getItem("cart")
@@ -6,13 +14,18 @@ const cartFromStorage = localStorage.getItem("cart")
   : [];
 
 const initialState = {
-  cart: cartFromStorage, // <- burada localStorage kullanıyoruz
-  payment: {},
+  cart: cartFromStorage,
+  payment: {
+    cards: []
+  },
   address: [],
+  previousOrders: [],
+  loading: false,
+  error: null
 };
 
 export default function shoppingCartReducer(state = initialState, action) {
-  switch(action.type) {
+  switch (action.type) {
     case SET_CART:
       return { ...state, cart: action.payload };
 
@@ -21,13 +34,19 @@ export default function shoppingCartReducer(state = initialState, action) {
 
     case SET_ADDRESS:
       return { ...state, address: action.payload };
-      case CLEAR_CART:
-      // localStorage'dan da temizle
+
+    case CLEAR_CART:
       localStorage.removeItem("cart");
-      return { 
-        ...state, 
-        cart: [] 
-      };
+      return { ...state, cart: [] };
+
+    case SET_PREVIOUS_ORDERS:
+      return { ...state, previousOrders: action.payload };
+
+    case SET_PREVIOUS_ORDERS_LOADING:
+      return { ...state, loading: action.payload };
+
+    case SET_PREVIOUS_ORDERS_ERROR:
+      return { ...state, error: action.payload };
 
     default:
       return state;
