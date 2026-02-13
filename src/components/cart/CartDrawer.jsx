@@ -5,7 +5,7 @@ import { Trash2 } from 'lucide-react';
 import { increaseCartItemCount, decreaseCartItemCount, deleteCartItemCount } from "../../store/thunks/cartThunks";
 import { selectCartTotalCount, selectCartGrandTotal } from "../../store/selectors/cartTotalSelector";
 import { Link } from "react-router-dom"
-import PreviousOrders from "../previousorder/PreviousOrderBody";
+
 
 
 export default function CartDrawer({ isOpen, onClose }) {
