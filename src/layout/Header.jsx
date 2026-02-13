@@ -34,6 +34,7 @@ export default function Header({ onCartOpen }) {
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const [isShopOpen, setIsShopOpen] = useState(false);
 const [isMobileShopOpen, setIsMobileShopOpen] = useState(false);
+const [isPagesOpen, setIsPagesOpen] = useState(false);
 
   
 
@@ -47,6 +48,9 @@ const [isMobileShopOpen, setIsMobileShopOpen] = useState(false);
     e.stopPropagation();
     setIsShopOpen(!isShopOpen);
     setIsUserMenuOpen(false);
+    if (isPagesOpen===true) {
+      setIsPagesOpen(false);
+    }
   };
 
   const handleUserMenuOpen = (e) => {
@@ -162,9 +166,46 @@ const [isMobileShopOpen, setIsMobileShopOpen] = useState(false);
             <Link to="/contact" className='text-[#737373] font-montserrat font-bold text-sm leading-6 tracking-[0.2px] text-center hover:text-[#23a6f0] transition-colors'>
               Contact
             </Link>
-            <Link to="/pages" className='text-[#737373] font-montserrat font-bold text-sm leading-6 tracking-[0.2px] text-center hover:text-[#23a6f0] transition-colors'>
-              Pages
-            </Link>
+            <div className="relative pages-dropdown-container">
+  <button
+    onClick={(e) => {
+      e.stopPropagation();
+      setIsPagesOpen(!isPagesOpen);
+      setIsShopOpen(false);
+      setIsUserMenuOpen(false);
+    }}
+    className='text-[#737373] font-montserrat font-bold text-sm leading-6 tracking-[0.2px] text-center hover:text-[#23a6f0] transition-colors flex items-center gap-1'
+  >
+    Pages <ChevronDown size={16} className={isPagesOpen ? "rotate-180 transition-transform" : "transition-transform"} />
+  </button>
+
+  {isPagesOpen && (
+    <div className="absolute top-full left-0 mt-2 w-48 bg-white shadow-lg rounded-md py-3 z-50">
+      <Link
+        to="/faq"
+        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#23a6f0] transition-colors"
+        onClick={() => setIsPagesOpen(false)}
+      >
+        FAQ
+      </Link>
+      <Link
+        to="/terms"
+        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#23a6f0] transition-colors"
+        onClick={() => setIsPagesOpen(false)}
+      >
+        Terms & Conditions
+      </Link>
+      <Link
+        to="/team"
+        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#23a6f0] transition-colors"
+        onClick={() => setIsPagesOpen(false)}
+      >
+        Team
+      </Link>
+    </div>
+  )}
+</div>
+
           </div>
 
          
@@ -250,7 +291,7 @@ const [isMobileShopOpen, setIsMobileShopOpen] = useState(false);
             <div className="flex flex-col items-center py-6 gap-4 text-lg">
               <Link
                 to="/"
-                className="text-[#737373]  font-montserrat font-normal text-[30px] leading-[45px] tracking-[0.2px] text-center
+                className="text-[#737373]  font-montserrat font-normal text-[30px] leading-11.25tracking-[0.2px] text-center
 "
                 onClick={() => setIsMenuOpen(false)}
               >
