@@ -15,6 +15,7 @@ import CartPage from './pages/CartPage';
 import PreviousOrders from './pages/PreviousOrders';
 import About from './pages/About';
 import Team from './pages/Team';
+import Pricing from './pages/Pricing';
 function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const dispatch = useDispatch();
@@ -54,6 +55,7 @@ function App() {
         <Route path="/previousorders" element={<PreviousOrders onCartOpen={handleCartOpen} />} />
         <Route path="/about" element={<About onCartOpen={handleCartOpen} />} />
         <Route path="/team" element={<Team onCartOpen={handleCartOpen} />} />
+        <Route path="/pricing" element={<Pricing onCartOpen={handleCartOpen} />} />
       </Routes>
 
       <CartDrawer

@@ -181,23 +181,17 @@ const [isPagesOpen, setIsPagesOpen] = useState(false);
 
   {isPagesOpen && (
     <div className="absolute top-full left-0 mt-2 w-48 bg-white shadow-lg rounded-md py-3 z-50">
+     
       <Link
-        to="/faq"
-        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#23a6f0] transition-colors"
+        to="/pricing"
+        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#23a6f0] transition-colors cursor-pointer"
         onClick={() => setIsPagesOpen(false)}
       >
-        FAQ
-      </Link>
-      <Link
-        to="/terms"
-        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#23a6f0] transition-colors"
-        onClick={() => setIsPagesOpen(false)}
-      >
-        Terms & Conditions
+        Pricing
       </Link>
       <Link
         to="/team"
-        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#23a6f0] transition-colors"
+        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#23a6f0] transition-colors "
         onClick={() => setIsPagesOpen(false)}
       >
         Team
