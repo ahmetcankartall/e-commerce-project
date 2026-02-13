@@ -13,7 +13,7 @@ import SignInPage from './pages/SignInPage';
 import CartDrawer from './components/cart/CartDrawer';
 import CartPage from './pages/CartPage'; 
 import PreviousOrders from './pages/PreviousOrders';
-
+import About from './pages/About';
 function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const dispatch = useDispatch();
@@ -51,6 +51,7 @@ function App() {
         <Route path="/checkout" element={<CheckoutPage onCartOpen={handleCartOpen} />} />
         <Route path="/shop/:gender/:categoryName/:categoryId/:productNameSlug/:productId" element={<ProductDetail onCartOpen={handleCartOpen} />} />
         <Route path="/previousorders" element={<PreviousOrders onCartOpen={handleCartOpen} />} />
+        <Route path="/about" element={<About onCartOpen={handleCartOpen} />} />
       </Routes>
 
       <CartDrawer

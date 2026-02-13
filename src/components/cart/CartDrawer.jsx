@@ -14,14 +14,27 @@ export default function CartDrawer({ isOpen, onClose }) {
   const grandTotal = useSelector(selectCartGrandTotal);
 
   // Drawer açıkken body scroll kapat
-  useEffect(() => {
-    document.body.style.overflow = isOpen ? "hidden" : "auto";
+ useEffect(() => {
+  if (isOpen) {
+    document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
+    document.body.style.position = "fixed";
+    document.body.style.width = "100%";
+  } else {
+    document.body.style.overflow = "auto";
+    document.documentElement.style.overflow = "auto";
+    document.body.style.position = "";
+  }
 
-    // cleanup yapmam lazım
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, [isOpen]);
+  return () => {
+    document.body.style.overflow = "auto";
+    document.documentElement.style.overflow = "auto";
+    document.body.style.position = "";
+  };
+}, [isOpen]);
+
+
+
   const cart = useSelector((state) => state.shop.cart);
   return (
     <>
@@ -38,7 +51,7 @@ export default function CartDrawer({ isOpen, onClose }) {
           w-full sm:w-2/3 lg:w-1/3
           bg-white z-50
           flex flex-col
-          transform transition-transform duration-1500 ease-out
+          transform transition-transform duration-1500 ease-out  border 
           ${isOpen ? "translate-x-0" : "translate-x-full"}
         `}
       >
@@ -94,7 +107,7 @@ export default function CartDrawer({ isOpen, onClose }) {
         </div>
 
         {/* Footer */}
-        <div className=" px-4 py-4 flex flex-col gap-3 px-16 border-t">
+        <div className=" lg:py-4 py-4 flex flex-col gap-3 px-16 border-t lg:mb-0 mb-25">
           <div className="flex justify-between text-sm font-medium px-4">
             <p className="text-montserrat font-bold">Genel Toplam</p>
             <p className="text-montserrat font-bold ">₺{grandTotal.toFixed(2)}</p>
