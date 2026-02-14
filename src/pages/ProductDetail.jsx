@@ -9,12 +9,16 @@ import Clients from '../components/home/Clients';
 import ProductSummary from '../components/productdetail/ProductSummary';
 import ProductInfo from '../components/productdetail/ProductInfo';
 import BestSellerProductDetail from '../components/productdetail/BestSellerProductDetail';
-
+import { useEffect } from 'react';
 
 
 
 
 export default function ProductDetail({onCartOpen}) {
+  useEffect(() => {
+  window.scrollTo(0, 0);
+}, []);
+
   return (
     <PageContent header={<Header onCartOpen={onCartOpen}/>}  navbar={<NavBar />} breadcrumb={<BreadcrumbProduct />} footer={<ShopPageFooter />}>
       <ProductSummary />
