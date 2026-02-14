@@ -1,5 +1,6 @@
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
+import ScrollToTop from './components/ScrollToTop';
 import { useEffect, useState, useCallback } from 'react';
 import { useDispatch } from "react-redux";
 import { verifyTokenThunk } from './store/thunks/verifyTokenThunk';
@@ -40,6 +41,7 @@ function App() {
 
   return (
     <>
+      <ScrollToTop />
       <ToastContainer />
 
       <Routes>
