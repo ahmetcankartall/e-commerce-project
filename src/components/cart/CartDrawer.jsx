@@ -107,7 +107,7 @@ export default function CartDrawer({ isOpen, onClose }) {
         </div>
 
         {/* Footer */}
-        <div className=" lg:py-4 py-4 flex flex-col gap-3 px-16 border-t lg:mb-0 md:mb-25 mb-25">
+        <div className=" lg:py-4 py-4 flex flex-col gap-3 px-16 border-t lg:mb-0  mb-25">
           <div className="flex justify-between text-sm font-medium px-4">
             <p className="text-montserrat font-bold">Genel Toplam</p>
             <p className="text-montserrat font-bold ">₺{grandTotal.toFixed(2)}</p>
