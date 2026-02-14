@@ -3,7 +3,7 @@ export const selectCheckedCartItems = (state) =>
 
 export const selectCartTotalCount = (state) =>
   state.shop.cart
-    .filter(item => item.checked)
+    
     .reduce((total, item) => total + item.count, 0);
 
 export const selectCartGrandTotal = (state) =>
