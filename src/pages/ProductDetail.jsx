@@ -9,7 +9,7 @@ import Clients from '../components/home/Clients';
 import ProductSummary from '../components/productdetail/ProductSummary';
 import ProductInfo from '../components/productdetail/ProductInfo';
 import BestSellerProductDetail from '../components/productdetail/BestSellerProductDetail';
-import { useEffect } from 'react';
+
 
 
 
