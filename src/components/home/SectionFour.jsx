@@ -7,23 +7,7 @@ import { useQuery } from "@tanstack/react-query";
 
 
 export default function SectionFour() {
-  const URL = "http://192.168.1.9:5000/api/cards";
-  const { data, isLoading, error } = useQuery({
-    queryKey: ["cards"], // Query key'i "cards" olarak değiştirdim
-    queryFn: () => axios.get(URL).then(res => res.data), // Axios ile API çağrısı
-    staleTime: 1000 * 10, // 10 saniye boyunca "taze" kalır
-  });
-  console.log("isLoading:", isLoading); // 👈 Takip et!
-  console.log("error:", error);
-  // DİKKAT: useQuery'de "isPending" değil "isLoading" kullanılır!
-  if (isLoading) return (<span>Loading...</span>);
-  if (error) return (<span>Error: {error.message}</span>);
-
-  // DİKKAT 2: Data yapısı { cards: [...] } şeklinde geliyor!
-  // Önce data.cards'a erişmeliyiz
-  const cards = data?.cards || [];
-  console.log("productcard", cards);
-  console.log("productcard", data);
+ 
 
 
 
