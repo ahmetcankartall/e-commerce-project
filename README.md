@@ -1,16 +1,29 @@
-# React + Vite
+🛒 E-Commerce Frontend Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Technologies: React, Vanilla Redux, HTML5, CSS3, JavaScript, Git, Kanban Project Management
 
-Currently, two official plugins are available:
+This is a frontend e-commerce application built with React and Vanilla Redux for state management. The project demonstrates building a responsive and interactive shopping experience, including product listing, cart management, and order flow.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🔹 Features
 
-## React Compiler
+Product Listing: Display products with dynamic data.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Shopping Cart: Add, remove, and update items in the cart.
 
-## Expanding the ESLint configuration
+State Management: Implemented using Vanilla Redux, including actions, reducers, and a centralized store.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Responsive Design: Works seamlessly on desktop and mobile devices.
+
+Kanban Project Management: Tasks tracked using Kanban methodology to ensure organized and iterative development.
+
+Clean Architecture: Component-based structure for scalable and maintainable code.
+
+💡 Project Highlights
+
+Hands-on state management experience with Vanilla Redux.
+
+Frontend-focused project emphasizing UI/UX and responsive layouts.
+
+Implemented dynamic updates and real-time feedback in the shopping cart.
+
+Demonstrates professional project management skills using Kanban boards.
